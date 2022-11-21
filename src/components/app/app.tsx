@@ -1,5 +1,17 @@
+import All from '../../pages/All';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+
 function App(): JSX.Element {
-  return <p>Hello, world!</p>;
+  return (
+    <>
+      <Header />
+
+      <All />
+
+      <Footer />
+    </>
+  );
 }
 
 export default App;
