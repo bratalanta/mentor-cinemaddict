@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupControl(props) {
+function PopupControl() {
   return (
     <section className='film-details__controls'>
       <button

@@ -1,15 +1,19 @@
-import All from '../../pages/All';
+import Films from '../Films/Films';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
+import Navigation from '../Navigation/Navigation';
+import Sort from '../Sort/Sort';
+// import Popup from '../Popup/Popup';
 
 function App(): JSX.Element {
   return (
     <>
       <Header />
-
-      <All />
-
+      <Navigation />
+      <Sort />
+      <Films />
       <Footer />
+      {/* <Popup /> */}
     </>
   );
 }

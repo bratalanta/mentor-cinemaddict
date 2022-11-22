@@ -1,9 +1,9 @@
 import React from 'react';
-import PopupComments from '../PopupComments/PopupComments';
-import PopupControl from '../PopupControl/PopupControl';
-import PopupInfo from '../PopupInfo/PopupInfo';
+import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
+import PopupControl from './PopupControl/PopupControl';
+import PopupDetails from './PopupDetails/PopupDetails';
 
-function Popup(props) {
+function Popup() {
   return (
     <section className='film-details'>
       <form className='film-details__inner' action='' method='get'>
@@ -13,13 +13,13 @@ function Popup(props) {
               close
             </button>
           </div>
-          <PopupInfo />
+          <PopupDetails />
 
           <PopupControl />
         </div>
 
         <div className='film-details__bottom-container'>
-          <PopupComments />
+          <PopupCommentsBlock />
         </div>
       </form>
     </section>

@@ -1,8 +1,8 @@
 import React from 'react';
-import PopupCommentEditor from '../PopupCommentEditor/PopupCommentEditor';
 import PopupCommentsList from '../PopupCommentsList/PopupCommentsList';
+import PopupNewComment from '../PopupNewComment/PopupNewComment';
 
-function PopupComments(props) {
+function PopupCommentsBlock() {
   return (
     <section className='film-details__comments-wrap'>
       <h3 className='film-details__comments-title'>
@@ -11,9 +11,9 @@ function PopupComments(props) {
 
       <PopupCommentsList />
 
-      <PopupCommentEditor />
+      <PopupNewComment />
     </section>
   );
 }
 
-export default PopupComments;
+export default PopupCommentsBlock;

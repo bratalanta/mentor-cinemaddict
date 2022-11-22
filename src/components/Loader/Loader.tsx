@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Loader(props) {
+function Loader() {
   return <h2 className='films-list__title'>Loading...</h2>;
 }
 

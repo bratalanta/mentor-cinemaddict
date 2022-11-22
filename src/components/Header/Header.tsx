@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header(props) {
+function Header() {
   return (
     <header className='header'>
       <h1 className='header__logo logo'>Cinemaddict</h1>

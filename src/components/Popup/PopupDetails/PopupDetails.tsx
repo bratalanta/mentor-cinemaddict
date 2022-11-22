@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupInfo(props) {
+function PopupDetails() {
   return (
     <div className='film-details__info-wrap'>
       <div className='film-details__poster'>
@@ -72,14 +72,14 @@ function PopupInfo(props) {
           Flamarion (Erich von Stroheim) is an arrogant, friendless, and
           misogynous marksman who displays his trick gunshot act in the
           vaudeville circuit. His show features a beautiful assistant, Connie
-          (Mary Beth Hughes) and her drunken husband Al (Dan Duryea),
-          Flamarion's other assistant. Flamarion falls in love with Connie, the
-          movie's femme fatale, and is soon manipulated by her into killing her
-          no good husband during one of their acts.
+          (Mary Beth Hughes) and her drunken husband Al (Dan Duryea), Flamarions
+          other assistant. Flamarion falls in love with Connie, the movies femme
+          fatale, and is soon manipulated by her into killing her no good
+          husband during one of their acts.
         </p>
       </div>
     </div>
   );
 }
 
-export default PopupInfo;
+export default PopupDetails;

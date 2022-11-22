@@ -1,9 +1,10 @@
 import React from 'react';
 import FilmCard from '../FilmCard/FilmCard';
+import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 
-function FilmCardList(props) {
+function FilmCardList() {
   return (
-    <>
+    <section className='films-list'>
       <h2 className='films-list__title visually-hidden'>
         All movies. Upcoming
       </h2>
@@ -14,13 +15,10 @@ function FilmCardList(props) {
         <FilmCard />
         <FilmCard />
         <FilmCard />
-        <FilmCard />
-        <FilmCard />
-        <FilmCard />
       </div>
 
-      <button className='films-list__show-more'>Show more</button>
-    </>
+      <ShowMoreButton />
+    </section>
   );
 }
 

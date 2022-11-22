@@ -1,22 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Sort(props) {
+function Sort() {
   return (
     <ul className='sort'>
       <li>
-        <a href='#' className='sort__button'>
+        <Link to='/' className='sort__button sort__button--active'>
           Sort by default
-        </a>
+        </Link>
       </li>
       <li>
-        <a href='#' className='sort__button'>
+        <Link to='/' className='sort__button'>
           Sort by date
-        </a>
+        </Link>
       </li>
       <li>
-        <a href='#' className='sort__button sort__button--active'>
+        <Link to='/' className='sort__button '>
           Sort by rating
-        </a>
+        </Link>
       </li>
     </ul>
   );

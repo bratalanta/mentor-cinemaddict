@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function FilmCard(props) {
+function FilmCard() {
   return (
     <article className='film-card'>
-      <a href='#' className='film-card__link'>
+      <Link to='/' className='film-card__link'>
         <h3 className='film-card__title'>The Man with the Golden Arm</h3>
         <p className='film-card__rating'>9.0</p>
         <p className='film-card__info'>
@@ -21,7 +22,7 @@ function FilmCard(props) {
           Farm in Lexington, Kentucky with a set of drums and a new outlook on…
         </p>
         <span className='film-card__comments'>18 comments</span>
-      </a>
+      </Link>
       <div className='film-card__controls'>
         <button
           className='film-card__controls-item film-card__controls-item--add-to-watchlist'

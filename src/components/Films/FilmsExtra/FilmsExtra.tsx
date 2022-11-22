@@ -1,7 +1,7 @@
 import React from 'react';
 import FilmCard from '../FilmCard/FilmCard';
 
-function FilmsExtra(props) {
+function FilmsExtra() {
   return (
     <section className='films-list films-list--extra'>
       <h2 className='films-list__title'>Top rated</h2>

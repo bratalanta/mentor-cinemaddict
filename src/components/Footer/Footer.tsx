@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Footer(props) {
+function Footer() {
   return (
     <footer className='footer'>
       <section className='footer__logo logo logo--smaller'>Cinemaddict</section>

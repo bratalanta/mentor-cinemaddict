@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupCommentEditor(props) {
+function PopupNewComment() {
   return (
     <div className='film-details__new-comment'>
       <div className='film-details__add-emoji-label'></div>
@@ -82,4 +82,4 @@ function PopupCommentEditor(props) {
   );
 }
 
-export default PopupCommentEditor;
+export default PopupNewComment;
