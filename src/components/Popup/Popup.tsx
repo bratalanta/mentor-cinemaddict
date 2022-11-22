@@ -1,6 +1,7 @@
 import React from 'react';
 import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
-import PopupControl from './PopupControl/PopupControl';
+import PopupControls from './PopupControls/PopupControls';
+
 import PopupDetails from './PopupDetails/PopupDetails';
 
 function Popup() {
@@ -15,7 +16,7 @@ function Popup() {
           </div>
           <PopupDetails />
 
-          <PopupControl />
+          <PopupControls />
         </div>
 
         <div className='film-details__bottom-container'>
