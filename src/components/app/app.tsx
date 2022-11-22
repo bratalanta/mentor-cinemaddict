@@ -1,21 +1,7 @@
-import Films from '../Films/Films';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
-import Navigation from '../Navigation/Navigation';
-import Sort from '../Sort/Sort';
-// import Popup from '../Popup/Popup';
+import MainPage from '../../pages/MainPage/MainPage';
 
 function App(): JSX.Element {
-  return (
-    <>
-      <Header />
-      <Navigation />
-      <Sort />
-      <Films />
-      <Footer />
-      {/* <Popup /> */}
-    </>
-  );
+  return <MainPage />;
 }
 
 export default App;
