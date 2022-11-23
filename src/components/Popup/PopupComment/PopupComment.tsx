@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PopupComment() {
+const PopupComment = () => {
   return (
     <li className='film-details__comment'>
       <span className='film-details__comment-emoji'>
@@ -23,6 +23,6 @@ function PopupComment() {
       </div>
     </li>
   );
-}
+};
 
 export default PopupComment;

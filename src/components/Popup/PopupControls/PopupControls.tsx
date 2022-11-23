@@ -1,7 +1,7 @@
 import React from 'react';
-import { PopupControl } from '../../../const';
+import { ActiveClass, PopupControl } from '../../../const';
 
-function PopupControls() {
+const PopupControls = () => {
   return (
     <section className='film-details__controls'>
       {Object.values(PopupControl).map(({ name, title }) => (
@@ -17,6 +17,6 @@ function PopupControls() {
       ))}
     </section>
   );
-}
+};
 
 export default PopupControls;

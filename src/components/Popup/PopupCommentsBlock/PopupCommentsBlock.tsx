@@ -2,7 +2,7 @@ import React from 'react';
 import PopupCommentsList from '../PopupCommentsList/PopupCommentsList';
 import PopupNewComment from '../PopupNewComment/PopupNewComment';
 
-function PopupCommentsBlock() {
+const PopupCommentsBlock = () => {
   return (
     <section className='film-details__comments-wrap'>
       <h3 className='film-details__comments-title'>
@@ -14,6 +14,6 @@ function PopupCommentsBlock() {
       <PopupNewComment />
     </section>
   );
-}
+};
 
 export default PopupCommentsBlock;

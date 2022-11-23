@@ -1,7 +1,7 @@
 import React from 'react';
 import PopupComment from '../PopupComment/PopupComment';
 
-function PopupCommentsList() {
+const PopupCommentsList = () => {
   return (
     <ul className='film-details__comments-list'>
       <PopupComment />
@@ -10,6 +10,6 @@ function PopupCommentsList() {
       <PopupComment />
     </ul>
   );
-}
+};
 
 export default PopupCommentsList;

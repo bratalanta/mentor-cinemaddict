@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Sort() {
+const Sort = () => {
   return (
     <ul className='sort'>
       <li>
@@ -21,6 +21,6 @@ function Sort() {
       </li>
     </ul>
   );
-}
+};
 
 export default Sort;

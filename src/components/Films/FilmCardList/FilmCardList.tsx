@@ -1,8 +1,9 @@
 import React from 'react';
 import FilmCard from '../FilmCard/FilmCard';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
+import movies from '../../../store/movies';
 
-function FilmCardList() {
+const FilmCardList = () => {
   return (
     <section className='films-list'>
       <h2 className='films-list__title visually-hidden'>
@@ -10,16 +11,14 @@ function FilmCardList() {
       </h2>
 
       <div className='films-list__container'>
-        <FilmCard />
-        <FilmCard />
-        <FilmCard />
-        <FilmCard />
-        <FilmCard />
+        {movies.movieList.map((film) => (
+          <FilmCard {...film} key={film.id} />
+        ))}
       </div>
 
       <ShowMoreButton />
     </section>
   );
-}
+};
 
 export default FilmCardList;

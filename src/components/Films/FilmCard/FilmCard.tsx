@@ -1,43 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import dayjs from 'dayjs';
+import { TAdaptedFilm } from '../../../types/adaptedFilms';
+import popup from '../../../store/Popup';
+import { observer } from 'mobx-react-lite';
+import { getActiveClass, getRuntime, getYear } from '../../../utils/utils';
+dayjs().format();
 
-function FilmCard() {
+const FilmCard = observer((props: TAdaptedFilm) => {
+  const { id, comments } = props;
+  const {
+    description,
+    genre,
+    title,
+    runtime,
+    poster,
+    totalRating,
+    release: { date },
+  } = props.filmInfo;
+  const { alreadyWatched, favorite, watchlist } = props.userDetails;
+
   return (
     <article className='film-card'>
       <Link to='/' className='film-card__link'>
-        <h3 className='film-card__title'>The Man with the Golden Arm</h3>
-        <p className='film-card__rating'>9.0</p>
-        <p className='film-card__info'>
-          <span className='film-card__year'>1955</span>
-          <span className='film-card__duration'>1h 59m</span>
-          <span className='film-card__genre'>Drama</span>
-        </p>
-        <img
-          src='./images/posters/the-man-with-the-golden-arm.jpg'
-          alt=''
-          className='film-card__poster'
-        />
-        <p className='film-card__description'>
-          Frankie Machine (Frank Sinatra) is released from the federal Narcotic
-          Farm in Lexington, Kentucky with a set of drums and a new outlook on…
-        </p>
-        <span className='film-card__comments'>18 comments</span>
+        <div onClick={() => popup.open(id)}>
+          <h3 className='film-card__title'>{title}</h3>
+          <p className='film-card__rating'>{totalRating}</p>
+          <p className='film-card__info'>
+            <span className='film-card__year'>{getYear(date)}</span>
+            <span className='film-card__duration'>{getRuntime(runtime)}</span>
+            <span className='film-card__genre'>{genre[0]}</span>
+          </p>
+          <img src={poster} alt='poster' className='film-card__poster' />
+          <p className='film-card__description'>{description}</p>
+          <span className='film-card__comments'>
+            {comments.length} comments
+          </span>
+        </div>
       </Link>
       <div className='film-card__controls'>
         <button
-          className='film-card__controls-item film-card__controls-item--add-to-watchlist'
+          className={`film-card__controls-item film-card__controls-item--add-to-watchlist ${getActiveClass(
+            watchlist,
+            'film-card__controls-item'
+          )}`}
           type='button'
         >
           Add to watchlist
         </button>
         <button
-          className='film-card__controls-item film-card__controls-item--mark-as-watched film-card__controls-item--active'
+          className={`film-card__controls-item film-card__controls-item--mark-as-watched ${getActiveClass(
+            alreadyWatched,
+            'film-card__controls-item'
+          )}`}
           type='button'
         >
           Mark as watched
         </button>
         <button
-          className='film-card__controls-item film-card__controls-item--favorite'
+          className={`film-card__controls-item film-card__controls-item--favorite ${getActiveClass(
+            favorite,
+            'film-card__controls-item'
+          )}`}
           type='button'
         >
           Mark as favorite
@@ -45,6 +69,6 @@ function FilmCard() {
       </div>
     </article>
   );
-}
+});
 
 export default FilmCard;

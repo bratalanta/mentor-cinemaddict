@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+const Header = () => {
   return (
     <header className='header'>
       <h1 className='header__logo logo'>Cinemaddict</h1>
@@ -17,6 +17,6 @@ function Header() {
       </section>
     </header>
   );
-}
+};
 
 export default Header;

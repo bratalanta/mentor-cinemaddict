@@ -434,12 +434,22 @@ button {
   overflow: hidden;
 }
 
+.overlay {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+}
+
 .film-details {
   position: fixed;
   height: 100vh;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 10;
   background-color: #212126;
   box-shadow: -3px 2px 13px 0 #141628;
   overflow-x: hidden;
@@ -448,6 +458,7 @@ button {
 
 .film-details__inner {
   background-color: #212126;
+  width: fit-content;
 }
 
 .film-details__top-container {
