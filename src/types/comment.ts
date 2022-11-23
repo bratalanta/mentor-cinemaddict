@@ -2,11 +2,11 @@ export type Comment = {
   id: string;
   author: string;
   comment: string;
-  date: Date;
+  date: string;
   emotion: Emotion;
 };
 
-export type Emotion = ['smile', 'sleeping', 'puke', 'angry'];
+export type Emotion = 'smile' | 'sleeping' | 'puke' | 'angry';
 
 export type LocalComment = {
   comment: string;

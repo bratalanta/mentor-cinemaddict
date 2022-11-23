@@ -9,6 +9,7 @@ const FilmsExtra = () => {
       <div className='films-list__container'>
         {/* <FilmCard />
         <FilmCard /> */}
+        {/* В разработке */}
       </div>
     </section>
   );

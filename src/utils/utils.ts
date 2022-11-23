@@ -11,6 +11,9 @@ const getDate = (date: dayjs.Dayjs) => dayjs(date).format('D MMMM YYYY');
 const getYear = (date: dayjs.Dayjs) => dayjs(date).format('YYYY');
 
 const getActiveClass = (trigger: boolean, className: string) =>
-  trigger ? `${className}--active` : '';
+  trigger ? className : '';
 
-export { getRuntime, getDate, getYear, getActiveClass };
+const getCommentDate = (date: string): string =>
+  dayjs(date).format('YYYY/MM/DD HH:MM');
+
+export { getRuntime, getDate, getYear, getActiveClass, getCommentDate };

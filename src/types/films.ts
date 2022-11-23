@@ -1,5 +1,3 @@
-export type TUnadaptedFilmList = TUnadaptedFilm[];
-
 export type TUnadaptedFilm = {
   id: string;
   film_info: TUnadaptedFilmInfo;

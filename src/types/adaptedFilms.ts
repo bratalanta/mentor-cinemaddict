@@ -1,8 +1,6 @@
 import dayjs from 'dayjs';
 dayjs().format();
 
-export type TAdaptedFilms = TAdaptedFilm[];
-
 export type TAdaptedFilm = {
   id: string;
   filmInfo: TAdaptedFilmInfo;

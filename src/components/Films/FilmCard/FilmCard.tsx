@@ -5,6 +5,7 @@ import { TAdaptedFilm } from '../../../types/adaptedFilms';
 import popup from '../../../store/Popup';
 import { observer } from 'mobx-react-lite';
 import { getActiveClass, getRuntime, getYear } from '../../../utils/utils';
+import { ActiveClass } from '../../../const';
 dayjs().format();
 
 const FilmCard = observer((props: TAdaptedFilm) => {
@@ -42,7 +43,7 @@ const FilmCard = observer((props: TAdaptedFilm) => {
         <button
           className={`film-card__controls-item film-card__controls-item--add-to-watchlist ${getActiveClass(
             watchlist,
-            'film-card__controls-item'
+            ActiveClass.FilmCardButton
           )}`}
           type='button'
         >
@@ -51,7 +52,7 @@ const FilmCard = observer((props: TAdaptedFilm) => {
         <button
           className={`film-card__controls-item film-card__controls-item--mark-as-watched ${getActiveClass(
             alreadyWatched,
-            'film-card__controls-item'
+            ActiveClass.FilmCardButton
           )}`}
           type='button'
         >
@@ -60,7 +61,7 @@ const FilmCard = observer((props: TAdaptedFilm) => {
         <button
           className={`film-card__controls-item film-card__controls-item--favorite ${getActiveClass(
             favorite,
-            'film-card__controls-item'
+            ActiveClass.FilmCardButton
           )}`}
           type='button'
         >

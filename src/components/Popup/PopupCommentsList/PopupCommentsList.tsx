@@ -1,13 +1,13 @@
 import React from 'react';
+import { commentList } from '../../../dataBase/comments';
 import PopupComment from '../PopupComment/PopupComment';
 
 const PopupCommentsList = () => {
   return (
     <ul className='film-details__comments-list'>
-      <PopupComment />
-      <PopupComment />
-      <PopupComment />
-      <PopupComment />
+      {commentList.map((comment) => (
+        <PopupComment {...comment} />
+      ))}
     </ul>
   );
 };

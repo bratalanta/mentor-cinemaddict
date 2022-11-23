@@ -31,9 +31,9 @@ const Popup = observer((props: TAdaptedFilm): JSX.Element => {
   return (
     <div
       className='overlay'
-      onClick={handleOverlayClick}
       ref={overlay}
       tabIndex={0}
+      onClick={handleOverlayClick}
       onKeyDown={handleKeyPress}
     >
       <section className='film-details'>
