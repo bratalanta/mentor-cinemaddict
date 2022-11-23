@@ -3,7 +3,7 @@ import { Comment } from '../../../types/comment';
 import { getCommentDate } from '../../../utils/utils';
 
 const PopupComment = (props: Comment) => {
-  const { author, comment, date, emotion, id } = props;
+  const { author, comment, date, emotion } = props;
   return (
     <li className='film-details__comment'>
       <span className='film-details__comment-emoji'>

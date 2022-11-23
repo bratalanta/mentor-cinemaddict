@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActiveClass, PopupControl } from '../../../const';
+import { PopupControl } from '../../../const';
 
 const PopupControls = () => {
   return (
