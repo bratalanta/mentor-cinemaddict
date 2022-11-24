@@ -1,8 +1,5 @@
-/* eslint-disable camelcase */
-import { TAdaptedFilm } from '../types/adaptedFilms';
-import { TUnadaptedFilm } from '../types/films';
-import dayjs from 'dayjs';
-dayjs().format();
+import { TAdaptedFilm } from '../types/adaptedFilm';
+import { TUnadaptedFilm } from '../types/unadaptedFilm';
 
 export function adaptFilm(film: TUnadaptedFilm): TAdaptedFilm {
   const { film_info: filmInfo, user_details: userDetails, ...filmProps } = film;
@@ -26,14 +23,14 @@ export function adaptFilm(film: TUnadaptedFilm): TAdaptedFilm {
       alternativeTitle,
       totalRating,
       release: {
+        ...release,
         releaseCountry: release.release_country,
-        date: dayjs(release.date),
       },
     },
     userDetails: {
       ...userProps,
       alreadyWatched,
-      watchingDate: watchingDate ? dayjs(watchingDate) : null,
+      watchingDate,
     },
   };
 }

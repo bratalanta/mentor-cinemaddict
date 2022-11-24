@@ -1,7 +1,6 @@
-/* eslint-disable camelcase */
-import { TUnadaptedFilm } from '../types/films';
+import { TUnadaptedFilm } from '../types/unadaptedFilm';
 
-export const dataBase: TUnadaptedFilm[] = [
+export const fish: TUnadaptedFilm[] = [
   {
     id: '0',
     film_info: {
@@ -293,7 +292,7 @@ export const dataBase: TUnadaptedFilm[] = [
     user_details: {
       watchlist: false,
       already_watched: false,
-      watching_date: null,
+      watching_date: '2022-11-22T09:06:43.294Z',
       favorite: false,
     },
     comments: [

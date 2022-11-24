@@ -6,7 +6,7 @@ const PopupCommentsList = () => {
   return (
     <ul className='film-details__comments-list'>
       {commentList.map((comment) => (
-        <PopupComment {...comment} />
+        <PopupComment commentInfo={comment} key={comment.id} />
       ))}
     </ul>
   );

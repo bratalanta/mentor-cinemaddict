@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 
-class Popup {
+class PopupState {
   isActive = false;
   activeId: string = '';
   constructor() {
@@ -10,12 +10,14 @@ class Popup {
   open(id: string) {
     this.isActive = true;
     this.activeId = id;
+    document.body.style.overflowY = 'hidden'
   }
 
   close() {
     this.isActive = false;
     this.activeId = '';
+    
   }
 }
 
-export default new Popup();
+export default new PopupState();

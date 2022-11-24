@@ -1,8 +1,12 @@
 import React from 'react';
-import { TAdaptedFilmInfo } from '../../../types/adaptedFilms';
+import { TAdaptedFilmInfo } from '../../../types/adaptedFilm';
 import { getDate, getRuntime } from '../../../utils/utils';
 
-const PopupDetails = (props: TAdaptedFilmInfo) => {
+type PopupDetailsProps = {
+  filmInfo: TAdaptedFilmInfo;
+};
+
+const PopupDetails = ({ filmInfo }: PopupDetailsProps) => {
   const {
     actors,
     ageRating,
@@ -16,7 +20,7 @@ const PopupDetails = (props: TAdaptedFilmInfo) => {
     title,
     totalRating,
     writers,
-  } = props;
+  } = filmInfo;
   return (
     <div className='film-details__info-wrap'>
       <div className='film-details__poster'>
@@ -53,7 +57,9 @@ const PopupDetails = (props: TAdaptedFilmInfo) => {
             </tr>
             <tr className='film-details__row'>
               <td className='film-details__term'>Release Date</td>
-              <td className='film-details__cell'>{getDate(release.date)}</td>
+              <td className='film-details__cell'>
+                {getDate(release.date, 'D MMMM YYYY')}
+              </td>
             </tr>
             <tr className='film-details__row'>
               <td className='film-details__term'>Runtime</td>

@@ -1,11 +1,10 @@
-/* eslint-disable arrow-body-style */
 import React, { KeyboardEvent, MouseEvent, useEffect, useRef } from 'react';
 import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
-import popup from '../../store/Popup';
-import { TAdaptedFilm } from '../../types/adaptedFilms';
+import popupState from '../../store/popupState';
+import { TAdaptedFilm } from '../../types/adaptedFilm';
 
 const Popup = observer((props: TAdaptedFilm): JSX.Element => {
   const overlay = useRef<HTMLDivElement>(null);
@@ -18,14 +17,16 @@ const Popup = observer((props: TAdaptedFilm): JSX.Element => {
 
   const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
-      popup.close();
+      popupState.close();
     }
+    document.body.style.overflowY = '';
   };
 
   const handleOverlayClick = (e: MouseEvent<HTMLElement>) => {
     if (overlay && e.target === overlay.current) {
-      popup.close();
+      popupState.close();
     }
+    document.body.style.overflowY = '';
   };
 
   return (
@@ -43,12 +44,12 @@ const Popup = observer((props: TAdaptedFilm): JSX.Element => {
               <button
                 className='film-details__close-btn'
                 type='button'
-                onClick={() => popup.close()}
+                onClick={() => popupState.close()}
               >
                 close
               </button>
             </div>
-            <PopupDetails {...props.filmInfo} />
+            <PopupDetails filmInfo={props.filmInfo} />
 
             <PopupControls />
           </div>

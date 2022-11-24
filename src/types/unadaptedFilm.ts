@@ -26,6 +26,6 @@ export type TUnadaptedFilmInfo = {
 export type TUnadaptedUserDetails = {
   watchlist: boolean;
   already_watched: boolean;
-  watching_date: string | null;
+  watching_date: string;
   favorite: boolean;
 };

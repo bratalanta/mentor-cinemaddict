@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import dayjs from 'dayjs';
-import { TAdaptedFilm } from '../../../types/adaptedFilms';
-import popup from '../../../store/Popup';
+import { TAdaptedFilm } from '../../../types/adaptedFilm';
+import popupState from '../../../store/popupState';
 import { observer } from 'mobx-react-lite';
-import { getActiveClass, getRuntime, getYear } from '../../../utils/utils';
-import { ActiveClass } from '../../../const';
-dayjs().format();
+import { getRuntime, getDate } from '../../../utils/utils';
 
-const FilmCard = observer((props: TAdaptedFilm) => {
-  const { id, comments } = props;
+type FilmCardProps = {
+  film: TAdaptedFilm;
+};
+
+const FilmCard = observer(({ film }: FilmCardProps) => {
+  const { id, comments } = film;
   const {
     description,
     genre,
@@ -18,17 +19,17 @@ const FilmCard = observer((props: TAdaptedFilm) => {
     poster,
     totalRating,
     release: { date },
-  } = props.filmInfo;
-  const { alreadyWatched, favorite, watchlist } = props.userDetails;
+  } = film.filmInfo;
+  const { alreadyWatched, favorite, watchlist } = film.userDetails;
 
   return (
     <article className='film-card'>
       <Link to='/' className='film-card__link'>
-        <div onClick={() => popup.open(id)}>
+        <div onClick={() => popupState.open(id)}>
           <h3 className='film-card__title'>{title}</h3>
           <p className='film-card__rating'>{totalRating}</p>
           <p className='film-card__info'>
-            <span className='film-card__year'>{getYear(date)}</span>
+            <span className='film-card__year'>{getDate(date, 'YYYY')}</span>
             <span className='film-card__duration'>{getRuntime(runtime)}</span>
             <span className='film-card__genre'>{genre[0]}</span>
           </p>
@@ -41,28 +42,25 @@ const FilmCard = observer((props: TAdaptedFilm) => {
       </Link>
       <div className='film-card__controls'>
         <button
-          className={`film-card__controls-item film-card__controls-item--add-to-watchlist ${getActiveClass(
-            watchlist,
-            ActiveClass.FilmCardButton
-          )}`}
+          className={`film-card__controls-item film-card__controls-item--add-to-watchlist ${
+            watchlist && 'film-card__controls-item--active'
+          }`}
           type='button'
         >
           Add to watchlist
         </button>
         <button
-          className={`film-card__controls-item film-card__controls-item--mark-as-watched ${getActiveClass(
-            alreadyWatched,
-            ActiveClass.FilmCardButton
-          )}`}
+          className={`film-card__controls-item film-card__controls-item--mark-as-watched ${
+            alreadyWatched && 'film-card__controls-item--active'
+          }`}
           type='button'
         >
           Mark as watched
         </button>
         <button
-          className={`film-card__controls-item film-card__controls-item--favorite ${getActiveClass(
-            favorite,
-            ActiveClass.FilmCardButton
-          )}`}
+          className={`film-card__controls-item film-card__controls-item--favorite ${
+            favorite && 'film-card__controls-item--active'
+          }`}
           type='button'
         >
           Mark as favorite

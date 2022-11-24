@@ -6,14 +6,9 @@ const getRuntime = (runtime: number) => {
   return hours ? `${hours}h ${minutes}m` : `${minutes}m`;
 };
 
-const getDate = (date: dayjs.Dayjs) => dayjs(date).format('D MMMM YYYY');
-
-const getYear = (date: dayjs.Dayjs) => dayjs(date).format('YYYY');
+const getDate = (date: string, format: string) => dayjs(date).format(format);
 
 const getActiveClass = (trigger: boolean, className: string) =>
   trigger ? className : '';
 
-const getCommentDate = (date: string): string =>
-  dayjs(date).format('YYYY/MM/DD HH:MM');
-
-export { getRuntime, getDate, getYear, getActiveClass, getCommentDate };
+export { getRuntime, getDate, getActiveClass };

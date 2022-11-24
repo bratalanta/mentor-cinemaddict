@@ -1,5 +1,4 @@
-import dayjs from 'dayjs';
-dayjs().format();
+
 
 export type TAdaptedFilm = {
   id: string;
@@ -18,7 +17,7 @@ export type TAdaptedFilmInfo = {
   writers: string[];
   actors: string[];
   release: {
-    date: dayjs.Dayjs;
+    date: string;
     releaseCountry: string;
   };
   runtime: number;
@@ -29,6 +28,6 @@ export type TAdaptedFilmInfo = {
 export type TAdaptedUserDetails = {
   watchlist: boolean;
   alreadyWatched: boolean;
-  watchingDate: dayjs.Dayjs | null;
+  watchingDate: string;
   favorite: boolean;
 };

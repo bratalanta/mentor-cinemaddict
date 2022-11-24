@@ -1,7 +1,7 @@
 import React from 'react';
 import FilmCard from '../FilmCard/FilmCard';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
-import movies from '../../../store/movies';
+import movies from '../../../store/filmsState';
 
 const FilmCardList = () => {
   return (
@@ -11,8 +11,8 @@ const FilmCardList = () => {
       </h2>
 
       <div className='films-list__container'>
-        {movies.movieList.map((film) => (
-          <FilmCard {...film} key={film.id} />
+        {movies.filmsList.map((film) => (
+          <FilmCard film={film} key={film.id} />
         ))}
       </div>
 

@@ -1,9 +1,13 @@
 import React from 'react';
 import { Comment } from '../../../types/comment';
-import { getCommentDate } from '../../../utils/utils';
+import { getDate } from '../../../utils/utils';
 
-const PopupComment = (props: Comment) => {
-  const { author, comment, date, emotion } = props;
+type PopupCommentProps = {
+  commentInfo: Comment;
+};
+
+const PopupComment = ({ commentInfo }: PopupCommentProps) => {
+  const { author, comment, date, emotion } = commentInfo;
   return (
     <li className='film-details__comment'>
       <span className='film-details__comment-emoji'>
@@ -19,7 +23,7 @@ const PopupComment = (props: Comment) => {
         <p className='film-details__comment-info'>
           <span className='film-details__comment-author'>{author}</span>
           <span className='film-details__comment-day'>
-            {getCommentDate(date)}
+            {getDate(date, 'YYYY/MM/DD HH:MM')}
           </span>
           <button className='film-details__comment-delete'>Delete</button>
         </p>
