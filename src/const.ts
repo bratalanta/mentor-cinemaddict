@@ -13,9 +13,4 @@ const PopupControl = {
   },
 } as const;
 
-const ActiveClass = {
-  FilmCardButton: 'film-card__controls-item--active',
-  PopupControlButton: 'film-details__control-button--active',
-} as const;
-
-export { PopupControl, ActiveClass };
+export { PopupControl };
