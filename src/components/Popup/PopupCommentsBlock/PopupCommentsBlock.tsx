@@ -13,7 +13,7 @@ const PopupCommentsBlock = () => {
         </span>
       </h3>
 
-      <PopupCommentsList />
+      <PopupCommentsList commentList={commentList} />
 
       <PopupNewComment />
     </section>
