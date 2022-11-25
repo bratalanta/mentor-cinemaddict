@@ -10,13 +10,12 @@ class PopupState {
   open(id: string) {
     this.isActive = true;
     this.activeId = id;
-    document.body.style.overflowY = 'hidden'
+    document.body.style.overflowY = 'hidden';
   }
 
   close() {
     this.isActive = false;
     this.activeId = '';
-    
   }
 }
 
