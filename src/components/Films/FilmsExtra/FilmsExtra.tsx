@@ -1,5 +1,4 @@
 import React from 'react';
-import FilmCard from '../FilmCard/FilmCard';
 
 const FilmsExtra = () => {
   return (
@@ -7,9 +6,7 @@ const FilmsExtra = () => {
       <h2 className='films-list__title'>Top rated</h2>
 
       <div className='films-list__container'>
-        {/* <FilmCard />
-        <FilmCard /> */}
-        {/* В разработке */}
+        {/* Здесь будут карточки лучших фильмов в категории */}
       </div>
     </section>
   );

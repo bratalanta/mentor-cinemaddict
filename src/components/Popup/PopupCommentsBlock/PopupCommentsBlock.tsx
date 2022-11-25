@@ -1,5 +1,5 @@
-import { observer } from 'mobx-react-lite';
 import React from 'react';
+import { observer } from 'mobx-react-lite';
 import commentsState from '../../../store/commentsState';
 import PopupCommentsList from '../PopupCommentsList/PopupCommentsList';
 import PopupNewComment from '../PopupNewComment/PopupNewComment';

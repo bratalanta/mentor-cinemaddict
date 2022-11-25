@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
- const useOutsideClick = (ref: any, handler: any) => {
+const useOutsideClick = (ref: any, handler: any) => {
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden';
     const listener = (event: MouseEvent | TouchEvent) => {
       if (!ref.current || ref.current.contains(event.target)) {
         return;
@@ -11,10 +11,11 @@ import { useEffect } from 'react';
       handler(event);
     };
     const keyboardListener = (event: KeyboardEvent) => {
-      if (ref.current && event.key === 'Escape') {
-        document.body.style.overflow = '';
-        handler(event);
+      if (!ref.current && event.key !== 'Escape') {
+        return;
       }
+      document.body.style.overflow = '';
+      handler(event);
     };
     document.addEventListener('mousedown', listener);
     document.addEventListener('touchstart', listener);
@@ -27,4 +28,4 @@ import { useEffect } from 'react';
   }, [ref, handler]);
 };
 
-export {useOutsideClick}
+export { useOutsideClick };
