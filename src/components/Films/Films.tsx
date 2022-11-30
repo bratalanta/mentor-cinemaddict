@@ -1,6 +1,5 @@
 import React from 'react';
 import FilmCardList from './FilmCardList/FilmCardList';
-import filmsList from '../../store/FilmsState';
 import { observer } from 'mobx-react-lite';
 import PopupState from '../../store/PopupState';
 import Popup from '../Popup/Popup';
