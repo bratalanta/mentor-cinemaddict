@@ -1,10 +1,18 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
-const useOutsideClick = (ref: any, handler: any) => {
+type THandler = (event: Event) => void;
+
+const useOutsideClick = (
+  ref: React.RefObject<HTMLElement>,
+  handler: THandler
+) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
     const listener = (event: MouseEvent | TouchEvent) => {
-      if (!ref.current || ref.current.contains(event.target)) {
+      if (
+        !ref.current ||
+        (event.target && ref.current.contains(event?.target as Node))
+      ) {
         return;
       }
       document.body.style.overflow = '';

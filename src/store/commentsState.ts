@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import { Comment } from '../types/comment';
 
-class CommentState {
+class CommentsState {
   commentsList: Comment[] = [];
   constructor() {
     makeAutoObservable(this);
@@ -9,8 +9,6 @@ class CommentState {
   setCommentList(list: Comment[]) {
     this.commentsList = list;
   }
-  deleteComment() {}
-  addComment() {}
 }
 
-export default new CommentState();
+export default new CommentsState();

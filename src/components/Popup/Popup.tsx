@@ -3,12 +3,16 @@ import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
-import popupState from '../../store/popupState';
+import popupState from '../../store/PopupState';
 import { TAdaptedFilm } from '../../types/adaptedFilm';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 
-const Popup = observer((props: TAdaptedFilm): JSX.Element => {
-  const popup = useRef<HTMLElement>(null);
+type PopupProps = {
+  film: TAdaptedFilm;
+};
+
+const Popup = observer(({ film }: PopupProps): JSX.Element => {
+  const popup = useRef() as React.MutableRefObject<HTMLDivElement>;
 
   useOutsideClick(popup, () => popupState.close());
 
@@ -26,7 +30,7 @@ const Popup = observer((props: TAdaptedFilm): JSX.Element => {
                 close
               </button>
             </div>
-            <PopupDetails filmInfo={props.filmInfo} />
+            <PopupDetails filmInfo={film.filmInfo} />
 
             <PopupControls />
           </div>

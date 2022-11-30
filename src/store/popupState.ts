@@ -1,20 +1,24 @@
 import { makeAutoObservable } from 'mobx';
+import { TAdaptedFilm } from '../types/adaptedFilm';
 
 class PopupState {
   isActive = false;
-  activeId: string = '';
+  activeId = '';
+  activeFilm = {} as TAdaptedFilm;
   constructor() {
     makeAutoObservable(this);
   }
 
-  open(id: string) {
+  open(film: TAdaptedFilm) {
     this.isActive = true;
-    this.activeId = id;
+    this.activeFilm = film;
+    this.activeId = film.id;
     document.body.style.overflowY = 'hidden';
   }
 
   close() {
     this.isActive = false;
+    this.activeFilm = {} as TAdaptedFilm;
     this.activeId = '';
   }
 }

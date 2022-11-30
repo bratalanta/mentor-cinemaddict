@@ -1,16 +1,18 @@
 import React from 'react';
 import FilmCardList from './FilmCardList/FilmCardList';
-// import FilmsExtra from './FilmsExtra/FilmsExtra';
-import filmsList from '../../store/filmsState';
+import filmsList from '../../store/FilmsState';
 import { observer } from 'mobx-react-lite';
+import PopupState from '../../store/PopupState';
+import Popup from '../Popup/Popup';
 
 const Films = observer(() => {
   return (
-    <section className='films'>
-      <FilmCardList filmsList={filmsList.filmsList} />
-      {/* <FilmsExtra />
-      <FilmsExtra /> */}
-    </section>
+    <>
+      <section className='films'>
+        <FilmCardList />
+      </section>
+      {PopupState.activeId && <Popup film={PopupState.activeFilm} />}
+    </>
   );
 });
 

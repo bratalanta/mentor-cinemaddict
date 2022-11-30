@@ -1,6 +1,6 @@
 import { Comment } from '../types/comment';
 
-export const commentList: Comment[] = [
+export const fishComments: Comment[] = [
   {
     id: '1336051',
     author: "Ilya O'Reilly",

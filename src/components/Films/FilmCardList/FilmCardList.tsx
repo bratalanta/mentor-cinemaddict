@@ -1,14 +1,9 @@
 import React from 'react';
 import FilmCard from '../FilmCard/FilmCard';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
-import filmsState from '../../../store/filmsState';
-import { TAdaptedFilm } from '../../../types/adaptedFilm';
+import filmsState from '../../../store/FilmsState';
 
-type FilmCardListProps = {
-  filmsList: TAdaptedFilm[];
-};
-
-const FilmCardList = ({ filmsList }: FilmCardListProps) => {
+const FilmCardList = () => {
   return (
     <section className='films-list'>
       <h2 className='films-list__title visually-hidden'>

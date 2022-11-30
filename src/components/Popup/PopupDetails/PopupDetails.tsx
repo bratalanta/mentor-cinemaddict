@@ -1,6 +1,7 @@
 import React from 'react';
 import { TAdaptedFilmInfo } from '../../../types/adaptedFilm';
 import { getDate, getRuntime } from '../../../utils/utils';
+import PopupGenres from '../PopupGenres/PopupGenres';
 
 type PopupDetailsProps = {
   filmInfo: TAdaptedFilmInfo;
@@ -72,11 +73,7 @@ const PopupDetails = ({ filmInfo }: PopupDetailsProps) => {
             <tr className='film-details__row'>
               <td className='film-details__term'>Genres</td>
               <td className='film-details__cell'>
-                {genre.map((item) => (
-                  <span className='film-details__genre' key={item}>
-                    {item}
-                  </span>
-                ))}
+                <PopupGenres genres={genre} />
               </td>
             </tr>
           </tbody>

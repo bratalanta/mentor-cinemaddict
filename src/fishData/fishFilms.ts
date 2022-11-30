@@ -1,6 +1,6 @@
 import { TUnadaptedFilm } from '../types/unadaptedFilm';
 
-export const fish: TUnadaptedFilm[] = [
+export const fishFilms: TUnadaptedFilm[] = [
   {
     id: '0',
     film_info: {

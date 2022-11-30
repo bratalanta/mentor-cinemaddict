@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { TAdaptedFilm } from '../../../types/adaptedFilm';
-import popupState from '../../../store/popupState';
+import popupState from '../../../store/PopupState';
 import { observer } from 'mobx-react-lite';
 import { getRuntime, getDate } from '../../../utils/utils';
+import FilmCardControls from '../FilmCardControls/FilmCardControls';
 
 type FilmCardProps = {
   film: TAdaptedFilm;
 };
 
 const FilmCard = observer(({ film }: FilmCardProps) => {
-  const { id, comments } = film;
+  const { comments } = film;
   const {
     description,
     genre,
@@ -20,12 +21,11 @@ const FilmCard = observer(({ film }: FilmCardProps) => {
     totalRating,
     release: { date },
   } = film.filmInfo;
-  const { alreadyWatched, favorite, watchlist } = film.userDetails;
 
   return (
     <article className='film-card'>
       <Link to='/' className='film-card__link'>
-        <div onClick={() => popupState.open(id)}>
+        <div onClick={() => popupState.open(film)}>
           <h3 className='film-card__title'>{title}</h3>
           <p className='film-card__rating'>{totalRating}</p>
           <p className='film-card__info'>
@@ -40,32 +40,7 @@ const FilmCard = observer(({ film }: FilmCardProps) => {
           </span>
         </div>
       </Link>
-      <div className='film-card__controls'>
-        <button
-          className={`film-card__controls-item film-card__controls-item--add-to-watchlist ${
-            watchlist && 'film-card__controls-item--active'
-          }`}
-          type='button'
-        >
-          Add to watchlist
-        </button>
-        <button
-          className={`film-card__controls-item film-card__controls-item--mark-as-watched ${
-            alreadyWatched && 'film-card__controls-item--active'
-          }`}
-          type='button'
-        >
-          Mark as watched
-        </button>
-        <button
-          className={`film-card__controls-item film-card__controls-item--favorite ${
-            favorite && 'film-card__controls-item--active'
-          }`}
-          type='button'
-        >
-          Mark as favorite
-        </button>
-      </div>
+      <FilmCardControls userDetails={film.userDetails} />
     </article>
   );
 });
