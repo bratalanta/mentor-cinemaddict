@@ -15,6 +15,9 @@ const Films = observer(() => {
   if (FilmsState.state === FecthStatus.Pending) {
     return <Loader />;
   }
+  if (FilmsState.state === FecthStatus.Rejected) {
+    return <div>Произошла ошибка</div>;
+  }
   return (
     <>
       <section className='films'>
