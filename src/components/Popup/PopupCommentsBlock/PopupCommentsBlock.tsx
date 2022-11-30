@@ -1,20 +1,25 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
-import commentsState from '../../../store/CommentsState';
 import PopupCommentsList from '../PopupCommentsList/PopupCommentsList';
 import PopupNewComment from '../PopupNewComment/PopupNewComment';
+import Loader from '../../Loader/Loader';
+import { FecthStatus } from '../../../const';
+import CommentsState from '../../../store/CommentsState';
 
 const PopupCommentsBlock = observer(() => {
+  if (CommentsState.state === FecthStatus.Pending) {
+    return <Loader />;
+  }
   return (
     <section className='film-details__comments-wrap'>
       <h3 className='film-details__comments-title'>
         Comments{' '}
         <span className='film-details__comments-count'>
-          {commentsState.commentsList.length}
+          {CommentsState.commentsList.length}
         </span>
       </h3>
 
-      <PopupCommentsList commentList={commentsState.commentsList} />
+      <PopupCommentsList commentList={CommentsState.commentsList} />
 
       <PopupNewComment />
     </section>

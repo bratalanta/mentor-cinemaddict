@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { TAdaptedFilm } from '../../../types/adaptedFilm';
 import popupState from '../../../store/PopupState';

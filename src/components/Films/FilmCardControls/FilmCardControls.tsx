@@ -1,4 +1,3 @@
-import React from 'react';
 import { TAdaptedUserDetails } from '../../../types/adaptedFilm';
 
 type FilmCardControlsProps = {

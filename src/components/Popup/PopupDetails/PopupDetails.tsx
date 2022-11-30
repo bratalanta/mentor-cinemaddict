@@ -1,4 +1,3 @@
-import React from 'react';
 import { TAdaptedFilmInfo } from '../../../types/adaptedFilm';
 import { getDate, getRuntime } from '../../../utils/utils';
 import PopupGenres from '../PopupGenres/PopupGenres';

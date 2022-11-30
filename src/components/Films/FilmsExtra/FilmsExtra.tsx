@@ -6,7 +6,7 @@ const FilmsExtra = () => {
       <h2 className='films-list__title'>Top rated</h2>
 
       <div className='films-list__container'>
-        {/* Здесь будут карточки лучших фильмов в категории */}
+        {/* Здесь нужно будет сделать вывод лучших фильмов в категории */}
       </div>
     </section>
   );

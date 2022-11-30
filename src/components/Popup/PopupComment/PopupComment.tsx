@@ -1,4 +1,3 @@
-import React from 'react';
 import { Comment } from '../../../types/comment';
 import { getDate } from '../../../utils/utils';
 

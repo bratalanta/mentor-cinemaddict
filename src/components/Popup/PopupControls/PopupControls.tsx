@@ -1,4 +1,3 @@
-import React from 'react';
 import { PopupControl } from '../../../const';
 
 const PopupControls = () => {

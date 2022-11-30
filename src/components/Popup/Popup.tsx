@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
@@ -6,15 +6,25 @@ import { observer } from 'mobx-react-lite';
 import popupState from '../../store/PopupState';
 import { TAdaptedFilm } from '../../types/adaptedFilm';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
+import CommentsState from '../../store/CommentsState';
 
 type PopupProps = {
   film: TAdaptedFilm;
 };
 
 const Popup = observer(({ film }: PopupProps): JSX.Element => {
+  useEffect(() => {
+    CommentsState.fetchCommentList(film.id);
+  }, []);
+
   const popup = useRef() as React.MutableRefObject<HTMLDivElement>;
 
-  useOutsideClick(popup, () => popupState.close());
+  const popupHandler = () => {
+    popupState.close();
+    CommentsState.resetCommentList();
+  };
+
+  useOutsideClick(popup, popupHandler);
 
   return (
     <div className='overlay'>

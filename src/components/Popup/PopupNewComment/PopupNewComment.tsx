@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PopupNewComment = () => {
   return (
     <div className='film-details__new-comment'>

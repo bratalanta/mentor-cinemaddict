@@ -1,9 +1,9 @@
-import React from 'react';
 import FilmCard from '../FilmCard/FilmCard';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 import filmsState from '../../../store/FilmsState';
+import { observer } from 'mobx-react-lite';
 
-const FilmCardList = () => {
+const FilmCardList = observer(() => {
   return (
     <section className='films-list'>
       <h2 className='films-list__title visually-hidden'>
@@ -19,6 +19,6 @@ const FilmCardList = () => {
       <ShowMoreButton />
     </section>
   );
-};
+});
 
 export default FilmCardList;

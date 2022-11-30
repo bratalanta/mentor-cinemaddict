@@ -1,16 +1,32 @@
 import { TAdaptedFilm } from '../types/adaptedFilm';
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { TUnadaptedFilm } from '../types/unadaptedFilm';
 import { adaptFilm } from '../utils/adapter';
+import http from '../api/http';
+import { APIRoutes, FecthStatus } from '../const';
 
 class FilmsState {
   filmsList: TAdaptedFilm[] = [];
+  state = FecthStatus.Idle;
   constructor() {
     makeAutoObservable(this);
   }
 
-  setMovieList(list: TUnadaptedFilm[]): void {
-    this.filmsList = list.map((film) => adaptFilm(film));
+  async fetchMovieList() {
+    this.state = FecthStatus.Pending;
+    try {
+      const { data } = await http.get<TUnadaptedFilm[]>(APIRoutes.Movies);
+      const adaptedFilms = data.map((film) => adaptFilm(film));
+      runInAction(() => {
+        this.filmsList = adaptedFilms;
+        this.state = FecthStatus.Fulfilled;
+      });
+    } catch (error) {
+      runInAction(() => {
+        console.log(error);
+        this.state = FecthStatus.Rejected;
+      });
+    }
   }
 }
 
