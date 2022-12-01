@@ -1,30 +1,33 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import http from '../api/http';
-import { APIRoutes, FecthStatus } from '../const';
+import { APIRoutes, FetchStatus } from '../const';
 import { Comment } from '../types/comment';
+import { LocalError } from '../types/localError';
 
 class CommentsState {
   commentsList: Comment[] = [];
-  state = FecthStatus.Idle;
+  fetchStatus = FetchStatus.Idle;
+  fetchError = {} as LocalError;
   constructor() {
     makeAutoObservable(this);
   }
   async fetchCommentList(id: string) {
-    this.state = FecthStatus.Pending;
+    this.fetchStatus = FetchStatus.Pending;
     try {
       const { data } = await http.get(`${APIRoutes.Comments}/${id}`);
       runInAction(() => {
         this.commentsList = data;
-        this.state = FecthStatus.Fulfilled;
+        this.fetchStatus = FetchStatus.Fulfilled;
       });
-    } catch (error) {
+    } catch (error: any) {
       runInAction(() => {
-        this.state = FecthStatus.Rejected;
+        this.fetchStatus = FetchStatus.Rejected;
+        this.fetchError = {
+          status: error.response.status,
+          message: error.code,
+        };
       });
     }
-  }
-  resetCommentList() {
-    this.commentsList = [];
   }
 }
 

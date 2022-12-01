@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 
-type THandler = (event: Event) => void;
-
 const useOutsideClick = (
   ref: React.RefObject<HTMLElement>,
-  handler: THandler
+  handler: (event: Event) => void
 ) => {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -19,11 +17,10 @@ const useOutsideClick = (
       handler(event);
     };
     const keyboardListener = (event: KeyboardEvent) => {
-      if (!ref.current && event.key !== 'Escape') {
-        return;
+      if (ref.current && event.key === 'Escape') {
+        document.body.style.overflow = '';
+        handler(event);
       }
-      document.body.style.overflow = '';
-      handler(event);
     };
     document.addEventListener('mousedown', listener);
     document.addEventListener('touchstart', listener);

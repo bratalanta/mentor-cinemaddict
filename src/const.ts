@@ -20,11 +20,11 @@ const enum APIRoutes {
   Comments = '/comments',
 }
 
-const enum FecthStatus {
+const enum FetchStatus {
   Pending = 'pending',
   Rejected = 'rejected',
   Idle = 'idle',
   Fulfilled = 'fulfilled',
 }
 
-export { PopupControl, API, APIRoutes, FecthStatus };
+export { PopupControl, API, APIRoutes, FetchStatus };

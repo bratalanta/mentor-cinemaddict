@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
-import popupState from '../../store/PopupState';
+import PopupState from '../../store/PopupState';
 import { TAdaptedFilm } from '../../types/adaptedFilm';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import CommentsState from '../../store/CommentsState';
@@ -12,30 +12,25 @@ type PopupProps = {
   film: TAdaptedFilm;
 };
 
-const Popup = observer(({ film }: PopupProps): JSX.Element => {
+const Popup = observer(({ film }: PopupProps) => {
   useEffect(() => {
     CommentsState.fetchCommentList(film.id);
   }, []);
 
-  const popup = useRef() as React.MutableRefObject<HTMLDivElement>;
+  const popupRef = useRef(null);
 
-  const popupHandler = () => {
-    popupState.close();
-    CommentsState.resetCommentList();
-  };
-
-  useOutsideClick(popup, popupHandler);
+  useOutsideClick(popupRef, () => PopupState.close());
 
   return (
     <div className='overlay'>
-      <section ref={popup} className='film-details'>
+      <section ref={popupRef} className='film-details'>
         <form className='film-details__inner' action='' method='get'>
           <div className='film-details__top-container'>
             <div className='film-details__close'>
               <button
                 className='film-details__close-btn'
                 type='button'
-                onClick={() => popupState.close()}
+                onClick={() => PopupState.close()}
               >
                 close
               </button>

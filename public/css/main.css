@@ -192,6 +192,7 @@ button {
 
   outline: none;
   cursor: pointer;
+  transition: opacity 0.1s ease-in;
 }
 
 .sort__button:hover {
@@ -483,6 +484,7 @@ button {
   padding-bottom: 64px;
   padding-left: 10px;
   padding-right: 10px;
+  position: relative;
 }
 
 .film-details__close {

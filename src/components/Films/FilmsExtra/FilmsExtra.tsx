@@ -1,5 +1,3 @@
-import React from 'react';
-
 const FilmsExtra = () => {
   return (
     <section className='films-list films-list--extra'>
