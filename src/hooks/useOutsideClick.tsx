@@ -5,7 +5,6 @@ const useOutsideClick = (
   handler: (event: Event) => void
 ) => {
   useEffect(() => {
-    document.body.style.overflow = 'hidden';
     const listener = (event: MouseEvent | TouchEvent) => {
       if (
         !ref.current ||

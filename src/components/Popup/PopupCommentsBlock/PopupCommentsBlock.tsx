@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import PopupCommentsList from '../PopupCommentsList/PopupCommentsList';
 import PopupNewComment from '../PopupNewComment/PopupNewComment';
@@ -5,8 +6,14 @@ import Loader from '../../Loader/Loader';
 import { FetchStatus } from '../../../const';
 import CommentsState from '../../../store/CommentsState';
 import Error from '../../Error/Error';
+import PopupState from '../../../store/PopupState';
 
 const PopupCommentsBlock = observer(() => {
+  useEffect(() => {
+    if (PopupState.activeFilm.id) {
+      CommentsState.fetchCommentList(PopupState.activeFilm.id);
+    }
+  }, []);
   if (CommentsState.fetchStatus === FetchStatus.Pending) {
     return <Loader />;
   }

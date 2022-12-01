@@ -1,20 +1,13 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
 import PopupState from '../../store/PopupState';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
-import CommentsState from '../../store/CommentsState';
 
 const Popup = observer(() => {
   const film = PopupState.activeFilm;
-  useEffect(() => {
-    if (!PopupState.activeFilm.id) {
-      return;
-    }
-    CommentsState.fetchCommentList(PopupState.activeFilm.id);
-  }, []);
 
   const popupRef = useRef(null);
 
