@@ -4,7 +4,6 @@ import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
 import PopupState from '../../store/PopupState';
-import { TAdaptedFilm } from '../../types/adaptedFilm';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import CommentsState from '../../store/CommentsState';
 
