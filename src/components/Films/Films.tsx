@@ -9,7 +9,7 @@ const Films = observer(() => {
       <section className='films'>
         <FilmCardList />
       </section>
-      {PopupState.activeFilm.id && <Popup film={PopupState.activeFilm} />}
+      <Popup />
     </>
   );
 });

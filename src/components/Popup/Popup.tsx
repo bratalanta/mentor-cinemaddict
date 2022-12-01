@@ -8,19 +8,22 @@ import { TAdaptedFilm } from '../../types/adaptedFilm';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 import CommentsState from '../../store/CommentsState';
 
-type PopupProps = {
-  film: TAdaptedFilm;
-};
-
-const Popup = observer(({ film }: PopupProps) => {
+const Popup = observer(() => {
+  const film = PopupState.activeFilm;
   useEffect(() => {
-    CommentsState.fetchCommentList(film.id);
+    if (!PopupState.activeFilm.id) {
+      return;
+    }
+    CommentsState.fetchCommentList(PopupState.activeFilm.id);
   }, []);
 
   const popupRef = useRef(null);
 
   useOutsideClick(popupRef, () => PopupState.close());
 
+  if (!PopupState.activeFilm.id) {
+    return null;
+  }
   return (
     <div className='overlay'>
       <section ref={popupRef} className='film-details'>
