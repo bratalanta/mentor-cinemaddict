@@ -5,19 +5,19 @@ import Navigation from '../../components/Navigation/Navigation';
 import Sort from '../../components/Sort/Sort';
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
-import FilmsState from '../../store/FilmsState';
+import filmsState from '../../store/FilmsState';
 import Loader from '../../components/Loader/Loader';
 import { FetchStatus } from '../../const';
 import Error from '../../components/Error/Error';
 
 const MainPage = observer(() => {
   useEffect(() => {
-    FilmsState.fetchMovieList();
+    filmsState.fetchMovieList();
   }, []);
-  if (FilmsState.fetchStatus === FetchStatus.Pending) {
+  if (filmsState.fetchStatus === FetchStatus.Pending) {
     return <Loader />;
   }
-  if (FilmsState.fetchStatus === FetchStatus.Rejected) {
+  if (filmsState.fetchStatus === FetchStatus.Rejected) {
     return <Error />;
   }
   return (

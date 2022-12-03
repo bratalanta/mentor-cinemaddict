@@ -3,15 +3,15 @@ import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
-import PopupState from '../../store/PopupState';
+import popupState from '../../store/PopupState';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 
 const Popup = observer(() => {
-  const film = PopupState.activeFilm;
+  const film = popupState.activeFilm;
 
   const popupRef = useRef(null);
 
-  useOutsideClick(popupRef, () => PopupState.close());
+  useOutsideClick(popupRef, () => popupState.close());
 
   if (!film.id) {
     return null;
@@ -25,7 +25,7 @@ const Popup = observer(() => {
               <button
                 className='film-details__close-btn'
                 type='button'
-                onClick={() => PopupState.close()}
+                onClick={() => popupState.close()}
               >
                 close
               </button>

@@ -6,12 +6,12 @@ import Loader from '../../Loader/Loader';
 import { FetchStatus } from '../../../const';
 import CommentsState from '../../../store/CommentsState';
 import Error from '../../Error/Error';
-import PopupState from '../../../store/PopupState';
+import popupState from '../../../store/PopupState';
 
 const PopupCommentsBlock = observer(() => {
   useEffect(() => {
-    if (PopupState.activeFilm.id) {
-      CommentsState.fetchCommentList(PopupState.activeFilm.id);
+    if (popupState.activeFilm.id) {
+      CommentsState.fetchCommentList(popupState.activeFilm.id);
     }
   }, []);
 

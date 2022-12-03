@@ -1,7 +1,7 @@
 import FilmCard from '../FilmCard/FilmCard';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 import { observer } from 'mobx-react-lite';
-import FilmsState from '../../../store/FilmsState';
+import filmsState from '../../../store/FilmsState';
 
 const FilmCardList = observer(() => {
   return (
@@ -11,7 +11,7 @@ const FilmCardList = observer(() => {
       </h2>
 
       <div className='films-list__container'>
-        {FilmsState.filmsList.map((film) => (
+        {filmsState.filmsList.map((film) => (
           <FilmCard film={film} key={film.id} />
         ))}
       </div>
