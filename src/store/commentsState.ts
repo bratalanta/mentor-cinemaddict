@@ -7,10 +7,11 @@ import { LocalError } from '../types/localError';
 class CommentsState {
   commentsList: Comment[] = [];
   fetchStatus = FetchStatus.Idle;
-  fetchError = {} as LocalError;
+
   constructor() {
     makeAutoObservable(this);
   }
+
   async fetchCommentList(id: string) {
     this.fetchStatus = FetchStatus.Pending;
     try {
@@ -22,13 +23,10 @@ class CommentsState {
     } catch (error: any) {
       runInAction(() => {
         this.fetchStatus = FetchStatus.Rejected;
-        this.fetchError = {
-          status: error.response.status,
-          message: error.code,
-        };
       });
     }
   }
 }
+const commentsState = new CommentsState();
 
-export default new CommentsState();
+export default commentsState;

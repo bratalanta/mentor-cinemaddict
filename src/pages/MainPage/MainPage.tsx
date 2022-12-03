@@ -18,7 +18,7 @@ const MainPage = observer(() => {
     return <Loader />;
   }
   if (FilmsState.fetchStatus === FetchStatus.Rejected) {
-    return <Error error={FilmsState.fetchError} />;
+    return <Error />;
   }
   return (
     <>

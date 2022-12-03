@@ -13,7 +13,7 @@ const Popup = observer(() => {
 
   useOutsideClick(popupRef, () => PopupState.close());
 
-  if (!PopupState.activeFilm.id) {
+  if (!film.id) {
     return null;
   }
   return (

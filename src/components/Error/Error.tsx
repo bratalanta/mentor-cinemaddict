@@ -1,14 +1,17 @@
-import { LocalError } from '../../types/localError';
 import styles from './Error.module.css';
 
-type ErrorProps = {
-  error: LocalError;
-};
-
-const Error = ({ error }: ErrorProps) => {
+const Error = () => {
   return (
     <div className={styles.error}>
-      Ошибочка {error.status}. {error.message}
+      <h2>Произошла ошибка. Попробуйте перезагрузить.</h2>
+      <div>
+        <button
+          className={styles.button}
+          onClick={() => window.location.reload()}
+        >
+          Перезагрузить
+        </button>
+      </div>
     </div>
   );
 };

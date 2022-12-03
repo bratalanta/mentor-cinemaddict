@@ -17,4 +17,6 @@ class PopupState {
   }
 }
 
-export default new PopupState();
+const popupState = new PopupState();
+
+export default popupState;

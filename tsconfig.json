@@ -16,5 +16,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "useDefineForClassFields": true
-  }
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

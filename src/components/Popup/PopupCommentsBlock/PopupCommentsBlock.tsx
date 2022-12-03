@@ -14,11 +14,12 @@ const PopupCommentsBlock = observer(() => {
       CommentsState.fetchCommentList(PopupState.activeFilm.id);
     }
   }, []);
+
   if (CommentsState.fetchStatus === FetchStatus.Pending) {
     return <Loader />;
   }
   if (CommentsState.fetchStatus === FetchStatus.Rejected) {
-    return <Error error={CommentsState.fetchError} />;
+    return <Error />;
   }
   return (
     <section className='film-details__comments-wrap'>

@@ -8,13 +8,8 @@ const Loader = () => {
         height='100'
         width='100'
         color='#ffffff'
-        wrapperStyle={{}}
-        wrapperClass=''
         visible={true}
         ariaLabel='three-circles-rotating'
-        outerCircleColor=''
-        innerCircleColor=''
-        middleCircleColor=''
       />
     </div>
   );

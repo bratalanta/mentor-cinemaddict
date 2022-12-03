@@ -13,8 +13,6 @@ const PopupControl = {
   },
 } as const;
 
-const API = 'https://17.ecmascript.pages.academy/cinemaddict';
-
 const enum APIRoutes {
   Movies = '/movies',
   Comments = '/comments',
@@ -27,4 +25,4 @@ const enum FetchStatus {
   Fulfilled = 'fulfilled',
 }
 
-export { PopupControl, API, APIRoutes, FetchStatus };
+export { PopupControl, APIRoutes, FetchStatus };

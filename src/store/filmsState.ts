@@ -9,7 +9,7 @@ import { LocalError } from '../types/localError';
 class FilmsState {
   filmsList: TAdaptedFilm[] = [];
   fetchStatus = FetchStatus.Idle;
-  fetchError = {} as LocalError;
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -27,13 +27,11 @@ class FilmsState {
       runInAction(() => {
         console.log(error);
         this.fetchStatus = FetchStatus.Rejected;
-        this.fetchError = {
-          status: error.response.status,
-          message: error.code,
-        };
       });
     }
   }
 }
 
-export default new FilmsState();
+const filmsState = new FilmsState();
+
+export default filmsState;

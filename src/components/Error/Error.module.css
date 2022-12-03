@@ -9,3 +9,12 @@
   align-items: center;
   flex-direction: column;
 }
+
+.button {
+  border: none;
+  background: none;
+  color: #fff;
+  font-size: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 15px;
+}
