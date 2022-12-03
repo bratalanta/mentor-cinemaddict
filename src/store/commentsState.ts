@@ -2,7 +2,6 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import http from '../api/http';
 import { APIRoutes, FetchStatus } from '../const';
 import { Comment } from '../types/comment';
-import { LocalError } from '../types/localError';
 
 class CommentsState {
   commentsList: Comment[] = [];

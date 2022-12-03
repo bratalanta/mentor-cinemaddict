@@ -4,7 +4,6 @@ import { TUnadaptedFilm } from '../types/unadaptedFilm';
 import { adaptFilm } from '../utils/adapter';
 import http from '../api/http';
 import { APIRoutes, FetchStatus } from '../const';
-import { LocalError } from '../types/localError';
 
 class FilmsState {
   filmsList: TAdaptedFilm[] = [];
