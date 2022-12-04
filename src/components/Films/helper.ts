@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { SortOptions } from '../../const';
+import { FilterOptions, SortOptions } from '../../const';
 import filmsState from '../../store/FilmsState';
 import { TAdaptedFilm } from '../../types/adaptedFilm';
 
@@ -9,14 +9,34 @@ const sortByDate = (a: TAdaptedFilm, b: TAdaptedFilm) =>
 const sortByRating = (a: TAdaptedFilm, b: TAdaptedFilm) =>
   b.filmInfo.totalRating - a.filmInfo.totalRating;
 
-export const getCurrentSortedFilms = (option: string) => {
+export const getCurrentSortedFilms = (arr: TAdaptedFilm[], option: string) => {
   switch (option) {
     case SortOptions.DATE:
-      return [...filmsState.filmsList].sort(sortByDate);
+      return [...arr].sort(sortByDate);
     case SortOptions.RATING:
-      return [...filmsState.filmsList].sort(sortByRating);
+      return [...arr].sort(sortByRating);
     case SortOptions.DEFAULT:
-      return [...filmsState.filmsList];
+      return [...arr];
+
+    default:
+      return [...arr];
+  }
+};
+
+export const getCurrentFilteredFilms = (filter: string | undefined) => {
+  switch (filter) {
+    case FilterOptions.Watchlist:
+      return [...filmsState.filmsList].filter(
+        (item) => item.userDetails.watchlist
+      );
+    case FilterOptions.Histoty:
+      return [...filmsState.filmsList].filter(
+        (item) => item.userDetails.alreadyWatched
+      );
+    case FilterOptions.Favorite:
+      return [...filmsState.filmsList].filter(
+        (item) => item.userDetails.favorite
+      );
 
     default:
       return [...filmsState.filmsList];

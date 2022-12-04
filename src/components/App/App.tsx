@@ -6,7 +6,7 @@ const App = (): JSX.Element => {
   return (
     <Routes>
       <Route path='/' element={<MainPage />}>
-        <Route index element={<Films />} />
+        <Route path='all' index element={<Films />} />
         <Route path=':filter' element={<Films />} />
       </Route>
     </Routes>

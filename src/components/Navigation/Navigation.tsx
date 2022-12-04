@@ -1,23 +1,19 @@
-import { Link } from 'react-router-dom';
+import { FilterOptions } from '../../const';
+import NavigationItem from './NavigationItem/NavigationItem';
+
+const NavigationItems = Object.values(FilterOptions);
+const NavigationProperties = Object.keys(FilterOptions);
 
 const Navigation = () => {
   return (
     <nav className='main-navigation'>
-      <Link
-        to='#all'
-        className='main-navigation__item main-navigation__item--active'
-      >
-        All movies
-      </Link>
-      <Link to='#watchlist' className='main-navigation__item'>
-        Watchlist <span className='main-navigation__item-count'>13</span>
-      </Link>
-      <Link to='#history' className='main-navigation__item'>
-        History <span className='main-navigation__item-count'>4</span>
-      </Link>
-      <Link to='#favorites' className='main-navigation__item'>
-        Favorites <span className='main-navigation__item-count'>8</span>
-      </Link>
+      {NavigationItems.map((item, index) => (
+        <NavigationItem
+          to={item}
+          title={NavigationProperties[index]}
+          key={item}
+        />
+      ))}
     </nav>
   );
 };

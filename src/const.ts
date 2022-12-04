@@ -31,10 +31,11 @@ const SortOptions = {
   DEFAULT: 'default',
 } as const;
 
-const enum FilterOptions {
-  Watchlist = 'watchList',
-  Histoty = 'alreadyWatched',
-  Favorite = 'favorite',
-}
+const FilterOptions = {
+  'All movies': 'all',
+  Watchlist: 'watchList',
+  Histoty: 'alreadyWatched',
+  Favorite: 'favorite',
+} as const;
 
 export { PopupControl, APIRoutes, FetchStatus, SortOptions, FilterOptions };
