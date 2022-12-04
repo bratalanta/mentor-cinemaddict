@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { SortOptionValue } from '../../../types/sort';
+import React from 'react';
+import { SortOptions } from '../../../const';
 import SortItem from '../SortItem/SortItem';
 
-const sortOptionList: SortOptionValue[] = ['default', 'date', 'rating'];
+const sortOptionList = Object.values(SortOptions);
 
 const SortList = () => {
   const handleSubmit = (e: React.FormEvent) => {

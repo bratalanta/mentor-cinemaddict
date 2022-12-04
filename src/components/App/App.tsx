@@ -1,13 +1,13 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import MainPage from '../../pages/MainPage/MainPage';
 import Films from '../Films/Films';
 
-const App = (): JSX.Element => {
+const App = () => {
   return (
     <Routes>
       <Route path='/' element={<MainPage />}>
-        <Route path='all' index element={<Films />} />
-        <Route path=':filter' element={<Films />} />
+        <Route path='/' element={<Navigate to='/all' />} />
+        <Route path='/:filter' element={<Films />} />
       </Route>
     </Routes>
   );

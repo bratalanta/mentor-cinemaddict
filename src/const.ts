@@ -26,9 +26,9 @@ const enum FetchStatus {
 }
 
 const SortOptions = {
+  DEFAULT: 'default',
   DATE: 'date',
   RATING: 'rating',
-  DEFAULT: 'default',
 } as const;
 
 const FilterOptions = {
