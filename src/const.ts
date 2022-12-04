@@ -25,4 +25,16 @@ const enum FetchStatus {
   Fulfilled = 'fulfilled',
 }
 
-export { PopupControl, APIRoutes, FetchStatus };
+const SortOptions = {
+  DATE: 'date',
+  RATING: 'rating',
+  DEFAULT: 'default',
+} as const;
+
+const enum FilterOptions {
+  Watchlist = 'watchList',
+  Histoty = 'alreadyWatched',
+  Favorite = 'favorite',
+}
+
+export { PopupControl, APIRoutes, FetchStatus, SortOptions, FilterOptions };

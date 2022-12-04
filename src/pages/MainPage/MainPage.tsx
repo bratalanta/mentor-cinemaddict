@@ -1,4 +1,3 @@
-import Films from '../../components/Films/Films';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
@@ -9,6 +8,7 @@ import filmsState from '../../store/FilmsState';
 import Loader from '../../components/Loader/Loader';
 import { FetchStatus } from '../../const';
 import Error from '../../components/Error/Error';
+import { Outlet } from 'react-router-dom';
 
 const MainPage = observer(() => {
   useEffect(() => {
@@ -25,7 +25,7 @@ const MainPage = observer(() => {
       <Header />
       <Navigation />
       <Sort />
-      <Films />
+      <Outlet />
       <Footer />
     </>
   );

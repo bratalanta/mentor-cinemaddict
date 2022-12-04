@@ -1,25 +1,7 @@
-import { Link } from 'react-router-dom';
+import SortList from './SortList/SortList';
 
 const Sort = () => {
-  return (
-    <ul className='sort'>
-      <li>
-        <Link to='/' className='sort__button sort__button--active'>
-          Sort by default
-        </Link>
-      </li>
-      <li>
-        <Link to='/' className='sort__button'>
-          Sort by date
-        </Link>
-      </li>
-      <li>
-        <Link to='/' className='sort__button '>
-          Sort by rating
-        </Link>
-      </li>
-    </ul>
-  );
+  return <SortList />;
 };
 
 export default Sort;

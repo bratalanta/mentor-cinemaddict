@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { TAdaptedFilm } from '../../../types/adaptedFilm';
 import popupState from '../../../store/PopupState';
 import { observer } from 'mobx-react-lite';
@@ -23,7 +22,7 @@ const FilmCard = observer(({ film }: FilmCardProps) => {
 
   return (
     <article className='film-card'>
-      <Link to='/' className='film-card__link'>
+      <div className='film-card__link'>
         <div onClick={() => popupState.open(film)}>
           <h3 className='film-card__title'>{title}</h3>
           <p className='film-card__rating'>{totalRating}</p>
@@ -38,7 +37,7 @@ const FilmCard = observer(({ film }: FilmCardProps) => {
             {comments.length} comments
           </span>
         </div>
-      </Link>
+      </div>
       <FilmCardControls userDetails={film.userDetails} />
     </article>
   );
