@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { FilterOptions, SortOptions } from '../../const';
-import filmsState from '../../store/FilmsState';
+import filmsState from '../../store/filmsState';
 import { TAdaptedFilm } from '../../types/adaptedFilm';
 
 const sortByDate = (a: TAdaptedFilm, b: TAdaptedFilm) =>

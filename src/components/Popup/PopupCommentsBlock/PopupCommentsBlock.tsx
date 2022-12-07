@@ -4,21 +4,21 @@ import PopupCommentsList from '../PopupCommentsList/PopupCommentsList';
 import PopupNewComment from '../PopupNewComment/PopupNewComment';
 import Loader from '../../Loader/Loader';
 import { FetchStatus } from '../../../const';
-import CommentsState from '../../../store/CommentsState';
+import commentsState from '../../../store/commentsState';
 import Error from '../../Error/Error';
-import popupState from '../../../store/PopupState';
+import popupState from '../../../store/popupState';
 
 const PopupCommentsBlock = observer(() => {
   useEffect(() => {
     if (popupState.activeFilm.id) {
-      CommentsState.fetchCommentList(popupState.activeFilm.id);
+      commentsState.fetchCommentList(popupState.activeFilm.id);
     }
   }, []);
 
-  if (CommentsState.fetchStatus === FetchStatus.Pending) {
+  if (commentsState.fetchStatus === FetchStatus.Pending) {
     return <Loader />;
   }
-  if (CommentsState.fetchStatus === FetchStatus.Rejected) {
+  if (commentsState.fetchStatus === FetchStatus.Rejected) {
     return <Error />;
   }
   return (
@@ -26,10 +26,10 @@ const PopupCommentsBlock = observer(() => {
       <h3 className='film-details__comments-title'>
         Comments{' '}
         <span className='film-details__comments-count'>
-          {CommentsState.commentsList.length}
+          {commentsState.commentsList.length}
         </span>
       </h3>
-      <PopupCommentsList commentList={CommentsState.commentsList} />
+      <PopupCommentsList commentList={commentsState.commentsList} />
       <PopupNewComment />
     </section>
   );

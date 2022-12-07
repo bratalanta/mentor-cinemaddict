@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import sortState from '../../../store/SortState';
+import sortState from '../../../store/sortState';
 
 type NavigationItemProps = {
   to: string;

@@ -4,7 +4,7 @@ import Navigation from '../../components/Navigation/Navigation';
 import Sort from '../../components/Sort/Sort';
 import { observer } from 'mobx-react-lite';
 import { useEffect } from 'react';
-import filmsState from '../../store/FilmsState';
+import filmsState from '../../store/filmsState';
 import Loader from '../../components/Loader/Loader';
 import { FetchStatus } from '../../const';
 import Error from '../../components/Error/Error';

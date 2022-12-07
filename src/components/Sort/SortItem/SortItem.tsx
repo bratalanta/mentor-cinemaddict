@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import sortState from '../../../store/SortState';
+import sortState from '../../../store/sortState';
 import { SortOptionValue } from '../../../types/sort';
 
 type SortItemProps = {

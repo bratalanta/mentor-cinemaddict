@@ -3,7 +3,7 @@ import PopupCommentsBlock from './PopupCommentsBlock/PopupCommentsBlock';
 import PopupControls from './PopupControls/PopupControls';
 import PopupDetails from './PopupDetails/PopupDetails';
 import { observer } from 'mobx-react-lite';
-import popupState from '../../store/PopupState';
+import popupState from '../../store/popupState';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 
 const Popup = observer(() => {
