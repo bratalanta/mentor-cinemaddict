@@ -1,7 +1,18 @@
-import React from 'react';
+import { ThreeCircles } from 'react-loader-spinner';
+import styles from './Loader.module.css';
 
-function Loader() {
-  return <h2 className='films-list__title'>Loading...</h2>;
-}
+const Loader = () => {
+  return (
+    <div className={styles.loaderWrapper}>
+      <ThreeCircles
+        height='100'
+        width='100'
+        color='#ffffff'
+        visible={true}
+        ariaLabel='three-circles-rotating'
+      />
+    </div>
+  );
+};
 
 export default Loader;

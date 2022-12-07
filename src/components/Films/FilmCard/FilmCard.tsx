@@ -1,50 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { TAdaptedFilm } from '../../../types/adaptedFilm';
+import popupState from '../../../store/PopupState';
+import { observer } from 'mobx-react-lite';
+import { getRuntime, getDate } from '../../../utils/utils';
+import FilmCardControls from '../FilmCardControls/FilmCardControls';
 
-function FilmCard() {
+type FilmCardProps = {
+  film: TAdaptedFilm;
+};
+
+const FilmCard = observer(({ film }: FilmCardProps) => {
+  const { comments } = film;
+  const {
+    description,
+    genre,
+    title,
+    runtime,
+    poster,
+    totalRating,
+    release: { date },
+  } = film.filmInfo;
+
   return (
     <article className='film-card'>
-      <Link to='/' className='film-card__link'>
-        <h3 className='film-card__title'>The Man with the Golden Arm</h3>
-        <p className='film-card__rating'>9.0</p>
-        <p className='film-card__info'>
-          <span className='film-card__year'>1955</span>
-          <span className='film-card__duration'>1h 59m</span>
-          <span className='film-card__genre'>Drama</span>
-        </p>
-        <img
-          src='./images/posters/the-man-with-the-golden-arm.jpg'
-          alt=''
-          className='film-card__poster'
-        />
-        <p className='film-card__description'>
-          Frankie Machine (Frank Sinatra) is released from the federal Narcotic
-          Farm in Lexington, Kentucky with a set of drums and a new outlook on…
-        </p>
-        <span className='film-card__comments'>18 comments</span>
-      </Link>
-      <div className='film-card__controls'>
-        <button
-          className='film-card__controls-item film-card__controls-item--add-to-watchlist'
-          type='button'
-        >
-          Add to watchlist
-        </button>
-        <button
-          className='film-card__controls-item film-card__controls-item--mark-as-watched film-card__controls-item--active'
-          type='button'
-        >
-          Mark as watched
-        </button>
-        <button
-          className='film-card__controls-item film-card__controls-item--favorite'
-          type='button'
-        >
-          Mark as favorite
-        </button>
+      <div className='film-card__link'>
+        <div onClick={() => popupState.open(film)}>
+          <h3 className='film-card__title'>{title}</h3>
+          <p className='film-card__rating'>{totalRating}</p>
+          <p className='film-card__info'>
+            <span className='film-card__year'>{getDate(date, 'YYYY')}</span>
+            <span className='film-card__duration'>{getRuntime(runtime)}</span>
+            <span className='film-card__genre'>{genre[0]}</span>
+          </p>
+          <img src={poster} alt='poster' className='film-card__poster' />
+          <p className='film-card__description'>{description}</p>
+          <span className='film-card__comments'>
+            {comments.length} comments
+          </span>
+        </div>
       </div>
+      <FilmCardControls userDetails={film.userDetails} />
     </article>
   );
-}
+});
 
 export default FilmCard;

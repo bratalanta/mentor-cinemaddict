@@ -53,6 +53,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+body::-webkit-scrollbar {
+  width: 0;
+}
+
 a {
   color: inherit;
 }
@@ -170,7 +174,7 @@ button {
 
 .sort {
   display: flex;
-
+  padding-top: 20px;
   padding-left: 0;
   list-style: none;
 }
@@ -188,6 +192,7 @@ button {
 
   outline: none;
   cursor: pointer;
+  transition: opacity 0.1s ease-in;
 }
 
 .sort__button:hover {
@@ -235,6 +240,7 @@ button {
 
 .film-card__link:hover {
   opacity: 1;
+  cursor: pointer;
 }
 
 .film-card__title,
@@ -434,12 +440,22 @@ button {
   overflow: hidden;
 }
 
+.overlay {
+  position: fixed;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+}
+
 .film-details {
   position: fixed;
   height: 100vh;
   top: 0;
   right: 0;
-  z-index: 1;
+  z-index: 10;
   background-color: #212126;
   box-shadow: -3px 2px 13px 0 #141628;
   overflow-x: hidden;
@@ -448,6 +464,7 @@ button {
 
 .film-details__inner {
   background-color: #212126;
+  width: fit-content;
 }
 
 .film-details__top-container {
@@ -468,6 +485,7 @@ button {
   padding-bottom: 64px;
   padding-left: 10px;
   padding-right: 10px;
+  position: relative;
 }
 
 .film-details__close {

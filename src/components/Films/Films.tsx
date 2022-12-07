@@ -1,15 +1,16 @@
-import React from 'react';
 import FilmCardList from './FilmCardList/FilmCardList';
-import FilmsExtra from './FilmsExtra/FilmsExtra';
+import { observer } from 'mobx-react-lite';
+import Popup from '../Popup/Popup';
 
-function Films() {
+const Films = observer(() => {
   return (
-    <section className='films'>
-      <FilmCardList />
-      <FilmsExtra />
-      <FilmsExtra />
-    </section>
+    <>
+      <section className='films'>
+        <FilmCardList />
+      </section>
+      <Popup />
+    </>
   );
-}
+});
 
 export default Films;
