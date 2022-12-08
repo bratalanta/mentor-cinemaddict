@@ -7,6 +7,7 @@ type PopupCommentProps = {
 
 const PopupComment = ({ commentInfo }: PopupCommentProps) => {
   const { author, comment, date, emotion } = commentInfo;
+
   return (
     <li className='film-details__comment'>
       <span className='film-details__comment-emoji'>

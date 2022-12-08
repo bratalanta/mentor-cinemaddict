@@ -1,27 +1,24 @@
 import FilmCard from '../FilmCard/FilmCard';
 import ShowMoreButton from '../ShowMoreButton/ShowMoreButton';
 import { observer } from 'mobx-react-lite';
-import { useParams, useSearchParams } from 'react-router-dom';
-import { SortOptions } from '../../../const';
-import { useFilter } from '../../../hooks/useFilter';
+import { useSearchParams } from 'react-router-dom';
+import { SortOption } from '../../../const';
+import filmsState from '../../../store/filmsState';
 
 const FilmCardList = observer(() => {
-  const { filter } = useParams();
-  const [param] = useSearchParams();
-  const queryParam = param.get('sort') || SortOptions.DEFAULT;
-  const films = useFilter(filter, queryParam);
+  const [searchParam] = useSearchParams();
+  const queryParam = searchParam.get('sort') || SortOption.DEFAULT;
+
   return (
     <section className='films-list'>
       <h2 className='films-list__title visually-hidden'>
         All movies. Upcoming
       </h2>
-
       <div className='films-list__container'>
-        {films.map((film) => (
+        {filmsState.sort(queryParam).map((film) => (
           <FilmCard film={film} key={film.id} />
         ))}
       </div>
-
       <ShowMoreButton />
     </section>
   );

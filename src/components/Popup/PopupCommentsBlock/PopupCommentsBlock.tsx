@@ -18,9 +18,11 @@ const PopupCommentsBlock = observer(() => {
   if (commentsState.fetchStatus === FetchStatus.Pending) {
     return <Loader />;
   }
+
   if (commentsState.fetchStatus === FetchStatus.Rejected) {
     return <Error />;
   }
+
   return (
     <section className='film-details__comments-wrap'>
       <h3 className='film-details__comments-title'>

@@ -1,6 +1,6 @@
 import { makeAutoObservable, runInAction } from 'mobx';
 import http from '../api/http';
-import { APIRoutes, FetchStatus } from '../const';
+import { APIRoute, FetchStatus } from '../const';
 import { Comment } from '../types/comment';
 
 class CommentsState {
@@ -14,7 +14,7 @@ class CommentsState {
   async fetchCommentList(id: string) {
     this.fetchStatus = FetchStatus.Pending;
     try {
-      const { data } = await http.get(`${APIRoutes.Comments}/${id}`);
+      const { data } = await http.get(`${APIRoute.Comments}/${id}`);
       runInAction(() => {
         this.commentsList = data;
         this.fetchStatus = FetchStatus.Fulfilled;

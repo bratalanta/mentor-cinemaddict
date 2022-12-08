@@ -16,6 +16,7 @@ const Popup = observer(() => {
   if (!film.id) {
     return null;
   }
+
   return (
     <div className='overlay'>
       <section ref={popupRef} className='film-details'>
@@ -31,10 +32,8 @@ const Popup = observer(() => {
               </button>
             </div>
             <PopupDetails filmInfo={film.filmInfo} />
-
             <PopupControls />
           </div>
-
           <div className='film-details__bottom-container'>
             <PopupCommentsBlock />
           </div>

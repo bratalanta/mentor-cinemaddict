@@ -1,8 +1,8 @@
-import { FilterOptions } from '../../const';
+import { FilterOption } from '../../const';
 import NavigationItem from './NavigationItem/NavigationItem';
 
-const NavigationItems = Object.values(FilterOptions);
-const NavigationProperties = Object.keys(FilterOptions);
+const NavigationItems = Object.values(FilterOption);
+const NavigationProperties = Object.keys(FilterOption);
 
 const Navigation = () => {
   return (

@@ -1,5 +1,3 @@
-
-
 export type TAdaptedFilm = {
   id: string;
   filmInfo: TAdaptedFilmInfo;
@@ -26,8 +24,9 @@ export type TAdaptedFilmInfo = {
 };
 
 export type TAdaptedUserDetails = {
-  watchlist: boolean;
+  watchList: boolean;
   alreadyWatched: boolean;
   watchingDate: string;
   favorite: boolean;
+  [name: string]: boolean | string; //Добавлен для поиска по динамическому ключу для фильтрации в filmsState
 };
