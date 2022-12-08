@@ -4,7 +4,6 @@ import { TUnadaptedFilm } from '../types/unadaptedFilm';
 import { adaptFilm } from '../utils/adapter';
 import http from '../api/http';
 import { APIRoute, FetchStatus, SortOption } from '../const';
-import { SortOptionValue } from '../types/sort';
 import { sortByDate, sortByRating } from '../utils/utils';
 
 class FilmsState {
