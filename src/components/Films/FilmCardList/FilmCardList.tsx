@@ -4,10 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { useSearchParams } from 'react-router-dom';
 import { SortOption } from '../../../const';
 import filmsState from '../../../store/filmsState';
+import { SortOptionValue } from '../../../types/sort';
 
 const FilmCardList = observer(() => {
   const [searchParam] = useSearchParams();
-  const queryParam = searchParam.get('sort') || SortOption.DEFAULT;
+  const queryParam =
+    (searchParam.get('sort') as SortOptionValue) || SortOption.DEFAULT;
 
   return (
     <section className='films-list'>

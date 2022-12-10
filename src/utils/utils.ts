@@ -9,10 +9,22 @@ const getRuntime = (runtime: number) => {
 
 const getDate = (date: string, format: string) => dayjs(date).format(format);
 
-const sortByDate = (a: TAdaptedFilm, b: TAdaptedFilm) =>
-  dayjs(b.filmInfo.release.date).year() - dayjs(a.filmInfo.release.date).year();
+const sortByDate = (
+  {
+    filmInfo: {
+      release: { date: firstDate },
+    },
+  }: TAdaptedFilm,
+  {
+    filmInfo: {
+      release: { date: secondDate },
+    },
+  }: TAdaptedFilm
+) => dayjs(secondDate).year() - dayjs(firstDate).year();
 
-const sortByRating = (a: TAdaptedFilm, b: TAdaptedFilm) =>
-  b.filmInfo.totalRating - a.filmInfo.totalRating;
+const sortByRating = (
+  { filmInfo: { totalRating: firstTotalRating } }: TAdaptedFilm,
+  { filmInfo: { totalRating: secondTotalRating } }: TAdaptedFilm
+) => secondTotalRating - firstTotalRating;
 
 export { getRuntime, getDate, sortByDate, sortByRating };

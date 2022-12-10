@@ -3,8 +3,9 @@ import { makeAutoObservable, runInAction } from 'mobx';
 import { TUnadaptedFilm } from '../types/unadaptedFilm';
 import { adaptFilm } from '../utils/adapter';
 import http from '../api/http';
-import { APIRoute, FetchStatus, SortOption } from '../const';
+import { APIRoute, FetchStatus, FilterOption, SortOption } from '../const';
 import { sortByDate, sortByRating } from '../utils/utils';
+import { SortOptionValue } from '../types/sort';
 
 class FilmsState {
   filmsList: TAdaptedFilm[] = [];
@@ -25,7 +26,7 @@ class FilmsState {
         this.filteredFilms = adaptedFilms;
         this.fetchStatus = FetchStatus.Fulfilled;
       });
-    } catch (error: any) {
+    } catch (error) {
       runInAction(() => {
         console.log(error);
         this.fetchStatus = FetchStatus.Rejected;
@@ -33,25 +34,36 @@ class FilmsState {
     }
   }
 
-  sort(sortOption: string) {
+  sort(sortOption: SortOptionValue) {
     switch (sortOption) {
       case SortOption.DATE:
         return [...this.filteredFilms].sort(sortByDate);
       case SortOption.RATING:
         return [...this.filteredFilms].sort(sortByRating);
-
       default:
         return [...this.filteredFilms];
     }
   }
 
   filter(filterOption: string) {
-    this.filteredFilms = this.filmsList.filter(
-      (film) => film.userDetails[filterOption]
-    );
-
-    if (!this.filteredFilms.length) {
-      this.filteredFilms = this.filmsList;
+    switch (filterOption) {
+      case FilterOption.Watchlist:
+        this.filteredFilms = this.filmsList.filter(
+          (item) => item.userDetails.watchlist
+        );
+        break;
+      case FilterOption.History:
+        this.filteredFilms = this.filmsList.filter(
+          (item) => item.userDetails.alreadyWatched
+        );
+        break;
+      case FilterOption.Favorite:
+        this.filteredFilms = this.filmsList.filter(
+          (item) => item.userDetails.favorite
+        );
+        break;
+      default:
+        this.filteredFilms = this.filmsList;
     }
   }
 }

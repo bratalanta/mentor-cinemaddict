@@ -13,7 +13,6 @@ export function adaptFilm(film: TUnadaptedFilm): TAdaptedFilm {
   const {
     already_watched: alreadyWatched,
     watching_date: watchingDate,
-    watchlist: watchList,
     ...userProps
   } = film.user_details;
   return {
@@ -32,7 +31,6 @@ export function adaptFilm(film: TUnadaptedFilm): TAdaptedFilm {
       ...userProps,
       alreadyWatched,
       watchingDate,
-      watchList,
     },
   };
 }

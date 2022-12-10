@@ -19,7 +19,7 @@ class CommentsState {
         this.commentsList = data;
         this.fetchStatus = FetchStatus.Fulfilled;
       });
-    } catch (error: any) {
+    } catch (error) {
       runInAction(() => {
         this.fetchStatus = FetchStatus.Rejected;
       });

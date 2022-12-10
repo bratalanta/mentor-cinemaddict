@@ -5,12 +5,12 @@ type FilmCardControlsProps = {
 };
 
 const FilmCardControls = ({ userDetails }: FilmCardControlsProps) => {
-  const { alreadyWatched, favorite, watchList } = userDetails;
+  const { alreadyWatched, favorite, watchlist } = userDetails;
   return (
     <div className='film-card__controls'>
       <button
         className={`film-card__controls-item film-card__controls-item--add-to-watchlist ${
-          watchList ? 'film-card__controls-item--active' : null
+          watchlist ? 'film-card__controls-item--active' : null
         }`}
         type='button'
       >
