@@ -1,9 +1,9 @@
 import { Comment } from '../../../types/comment';
 import PopupComment from '../PopupComment/PopupComment';
 
-type PopupCommentsListProps = {
+interface PopupCommentsListProps {
   commentList: Comment[];
-};
+}
 
 const PopupCommentsList = ({ commentList }: PopupCommentsListProps) => {
   return (

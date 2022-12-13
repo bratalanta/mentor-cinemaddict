@@ -13,6 +13,7 @@ class PopupState {
   }
 
   close() {
+    document.body.style.overflowY = '';
     this.activeFilm = {} as TAdaptedFilm;
   }
 }

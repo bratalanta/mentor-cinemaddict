@@ -1,9 +1,9 @@
 import { Comment } from '../../../types/comment';
 import { getDate } from '../../../utils/utils';
 
-type PopupCommentProps = {
+interface PopupCommentProps {
   commentInfo: Comment;
-};
+}
 
 const PopupComment = ({ commentInfo }: PopupCommentProps) => {
   const { author, comment, date, emotion } = commentInfo;

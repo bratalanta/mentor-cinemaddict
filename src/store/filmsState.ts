@@ -6,11 +6,13 @@ import http from '../api/http';
 import { APIRoute, FetchStatus, FilterOption, SortOption } from '../const';
 import { sortByDate, sortByRating } from '../utils/utils';
 import { SortOptionValue } from '../types/sort';
+import { FilterOptionValue } from '../types/filter';
 
 class FilmsState {
   filmsList: TAdaptedFilm[] = [];
   fetchStatus = FetchStatus.Idle;
   filteredFilms: TAdaptedFilm[] = [];
+  activeSortOption: SortOptionValue = 'default';
 
   constructor() {
     makeAutoObservable(this);
@@ -34,19 +36,24 @@ class FilmsState {
     }
   }
 
-  sort(sortOption: SortOptionValue) {
-    switch (sortOption) {
+  setActiveSortOption(value: SortOptionValue) {
+    this.activeSortOption = value;
+  }
+
+  sort(option: SortOptionValue) {
+    switch (option) {
       case SortOption.DATE:
         return [...this.filteredFilms].sort(sortByDate);
       case SortOption.RATING:
         return [...this.filteredFilms].sort(sortByRating);
       default:
-        return [...this.filteredFilms];
+        return this.filteredFilms;
     }
   }
 
-  filter(filterOption: string) {
-    switch (filterOption) {
+  filter(option: FilterOptionValue) {
+    // Через enum пока пробовать не буду, потому что через FilterOption я не смогу вытащить поле alreadyWatched из фильма из-за разных имен. В фильме alreadyWatched, а в FilterOption history
+    switch (option) {
       case FilterOption.Watchlist:
         this.filteredFilms = this.filmsList.filter(
           (item) => item.userDetails.watchlist

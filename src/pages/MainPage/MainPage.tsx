@@ -14,12 +14,15 @@ const MainPage = observer(() => {
   useEffect(() => {
     filmsState.fetchMovieList();
   }, []);
+
   if (filmsState.fetchStatus === FetchStatus.Pending) {
     return <Loader />;
   }
+
   if (filmsState.fetchStatus === FetchStatus.Rejected) {
     return <Error />;
   }
+
   return (
     <>
       <Header />

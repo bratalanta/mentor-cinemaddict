@@ -33,8 +33,8 @@ const SortOption = {
 
 const FilterOption = {
   'All movies': 'all',
-  Watchlist: 'watchList',
-  History: 'alreadyWatched',
+  Watchlist: 'watchlist',
+  History: 'history',
   Favorite: 'favorite',
 } as const;
 

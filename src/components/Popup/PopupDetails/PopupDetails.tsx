@@ -2,9 +2,9 @@ import { TAdaptedFilmInfo } from '../../../types/adaptedFilm';
 import { getDate, getRuntime } from '../../../utils/utils';
 import PopupGenres from '../PopupGenres/PopupGenres';
 
-type PopupDetailsProps = {
+interface PopupDetailsProps {
   filmInfo: TAdaptedFilmInfo;
-};
+}
 
 const PopupDetails = ({ filmInfo }: PopupDetailsProps) => {
   const {
