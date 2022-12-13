@@ -1,3 +1,3 @@
-import { SortOptions } from '../const';
+import { SortOption } from '../const';
 
-export type SortOptionValue = typeof SortOptions[keyof typeof SortOptions];
+export type SortOptionValue = typeof SortOption[keyof typeof SortOption];

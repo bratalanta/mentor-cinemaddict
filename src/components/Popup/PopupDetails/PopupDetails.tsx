@@ -2,9 +2,9 @@ import { TAdaptedFilmInfo } from '../../../types/adaptedFilm';
 import { getDate, getRuntime } from '../../../utils/utils';
 import PopupGenres from '../PopupGenres/PopupGenres';
 
-type PopupDetailsProps = {
+interface PopupDetailsProps {
   filmInfo: TAdaptedFilmInfo;
-};
+}
 
 const PopupDetails = ({ filmInfo }: PopupDetailsProps) => {
   const {
@@ -25,22 +25,18 @@ const PopupDetails = ({ filmInfo }: PopupDetailsProps) => {
     <div className='film-details__info-wrap'>
       <div className='film-details__poster'>
         <img className='film-details__poster-img' src={poster} alt='poster' />
-
         <p className='film-details__age'>{ageRating}+</p>
       </div>
-
       <div className='film-details__info'>
         <div className='film-details__info-head'>
           <div className='film-details__title-wrap'>
             <h3 className='film-details__title'>{title}</h3>
             <p className='film-details__title-original'>{alternativeTitle}</p>
           </div>
-
           <div className='film-details__rating'>
             <p className='film-details__total-rating'>{totalRating}</p>
           </div>
         </div>
-
         <table className='film-details__table'>
           <tbody>
             <tr className='film-details__row'>
@@ -77,7 +73,6 @@ const PopupDetails = ({ filmInfo }: PopupDetailsProps) => {
             </tr>
           </tbody>
         </table>
-
         <p className='film-details__film-description'>{description}</p>
       </div>
     </div>

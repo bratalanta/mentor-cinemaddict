@@ -13,7 +13,7 @@ const PopupControl = {
   },
 } as const;
 
-const enum APIRoutes {
+const enum APIRoute {
   Movies = '/movies',
   Comments = '/comments',
 }
@@ -25,17 +25,17 @@ const enum FetchStatus {
   Fulfilled = 'fulfilled',
 }
 
-const SortOptions = {
+const SortOption = {
   DEFAULT: 'default',
   DATE: 'date',
   RATING: 'rating',
 } as const;
 
-const FilterOptions = {
+const FilterOption = {
   'All movies': 'all',
-  Watchlist: 'watchList',
-  Histoty: 'alreadyWatched',
+  Watchlist: 'watchlist',
+  History: 'history',
   Favorite: 'favorite',
 } as const;
 
-export { PopupControl, APIRoutes, FetchStatus, SortOptions, FilterOptions };
+export { PopupControl, APIRoute, FetchStatus, SortOption, FilterOption };

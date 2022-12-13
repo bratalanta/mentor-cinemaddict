@@ -1,8 +1,8 @@
 import { TAdaptedUserDetails } from '../../../types/adaptedFilm';
 
-type FilmCardControlsProps = {
+interface FilmCardControlsProps {
   userDetails: TAdaptedUserDetails;
-};
+}
 
 const FilmCardControls = ({ userDetails }: FilmCardControlsProps) => {
   const { alreadyWatched, favorite, watchlist } = userDetails;

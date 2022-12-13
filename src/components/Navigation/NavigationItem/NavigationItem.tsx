@@ -1,24 +1,24 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
-import sortState from '../../../store/SortState';
+import filmsState from '../../../store/filmsState';
+import { FilterOptionValue } from '../../../types/filter';
 
-type NavigationItemProps = {
-  to: string;
-  title: string;
-};
+interface NavigationItemProps {
+  filterValue: FilterOptionValue;
+  filterKey: string;
+}
 
-const NavigationItem = ({ to, title }: NavigationItemProps) => {
+const NavigationItem = ({ filterValue, filterKey }: NavigationItemProps) => {
   return (
     <NavLink
-      onClick={() => sortState.setActiveSortOption('default')}
-      to={`/${to}`}
+      to={`/${filterValue}`}
       className={({ isActive }) =>
         isActive
           ? 'main-navigation__item main-navigation__item--active'
           : 'main-navigation__item'
       }
+      onClick={() => filmsState.filter(filterValue)}
     >
-      {title}
+      {filterKey}
     </NavLink>
   );
 };

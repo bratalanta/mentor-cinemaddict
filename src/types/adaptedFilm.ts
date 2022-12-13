@@ -1,13 +1,11 @@
-
-
-export type TAdaptedFilm = {
+export interface TAdaptedFilm {
   id: string;
   filmInfo: TAdaptedFilmInfo;
   userDetails: TAdaptedUserDetails;
   comments: string[];
-};
+}
 
-export type TAdaptedFilmInfo = {
+export interface TAdaptedFilmInfo {
   title: string;
   alternativeTitle: string;
   totalRating: number;
@@ -23,11 +21,11 @@ export type TAdaptedFilmInfo = {
   runtime: number;
   genre: string[];
   description: string;
-};
+}
 
-export type TAdaptedUserDetails = {
+export interface TAdaptedUserDetails {
   watchlist: boolean;
   alreadyWatched: boolean;
   watchingDate: string;
   favorite: boolean;
-};
+}

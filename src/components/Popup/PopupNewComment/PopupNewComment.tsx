@@ -2,7 +2,6 @@ const PopupNewComment = () => {
   return (
     <div className='film-details__new-comment'>
       <div className='film-details__add-emoji-label'></div>
-
       <label className='film-details__comment-label'>
         <textarea
           className='film-details__comment-input'
@@ -10,7 +9,6 @@ const PopupNewComment = () => {
           name='comment'
         />
       </label>
-
       <div className='film-details__emoji-list'>
         <input
           className='film-details__emoji-item visually-hidden'
@@ -27,7 +25,6 @@ const PopupNewComment = () => {
             alt='emoji'
           />
         </label>
-
         <input
           className='film-details__emoji-item visually-hidden'
           name='comment-emoji'
@@ -43,7 +40,6 @@ const PopupNewComment = () => {
             alt='emoji'
           />
         </label>
-
         <input
           className='film-details__emoji-item visually-hidden'
           name='comment-emoji'
@@ -59,7 +55,6 @@ const PopupNewComment = () => {
             alt='emoji'
           />
         </label>
-
         <input
           className='film-details__emoji-item visually-hidden'
           name='comment-emoji'

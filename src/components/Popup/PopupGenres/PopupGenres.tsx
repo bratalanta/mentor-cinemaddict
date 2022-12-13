@@ -1,6 +1,6 @@
-type PopupGenresProps = {
+interface PopupGenresProps {
   genres: string[];
-};
+}
 
 const PopupGenres = ({ genres }: PopupGenresProps) => {
   return (

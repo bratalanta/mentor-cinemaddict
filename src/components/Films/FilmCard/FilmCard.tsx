@@ -1,12 +1,12 @@
 import { TAdaptedFilm } from '../../../types/adaptedFilm';
-import popupState from '../../../store/PopupState';
+import popupState from '../../../store/popupState';
 import { observer } from 'mobx-react-lite';
 import { getRuntime, getDate } from '../../../utils/utils';
 import FilmCardControls from '../FilmCardControls/FilmCardControls';
 
-type FilmCardProps = {
+interface FilmCardProps {
   film: TAdaptedFilm;
-};
+}
 
 const FilmCard = observer(({ film }: FilmCardProps) => {
   const { comments } = film;

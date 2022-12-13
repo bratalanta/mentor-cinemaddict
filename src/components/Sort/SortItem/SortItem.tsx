@@ -1,24 +1,20 @@
 import { useSearchParams } from 'react-router-dom';
-import sortState from '../../../store/SortState';
 import { SortOptionValue } from '../../../types/sort';
 
-type SortItemProps = {
+interface SortItemProps {
   sortOption: SortOptionValue;
-};
+}
 
 const SortItem = ({ sortOption }: SortItemProps) => {
-  const [_, setParam] = useSearchParams();
-  const isActive = sortOption === sortState.activeSortOption;
-
-  const handleClick = () => {
-    sortState.setActiveSortOption(sortOption);
-    setParam({ sort: sortOption });
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
 
   return (
     <button
-      className={`sort__button ${isActive ? 'sort__button--active' : null}`}
-      onClick={handleClick}
+      className={`sort__button ${
+        searchParams.get('sort') === sortOption ? 'sort__button--active' : null
+      }`}
+      type='button'
+      onClick={() => setSearchParams({ sort: sortOption })}
     >
       Sort by {sortOption}
     </button>

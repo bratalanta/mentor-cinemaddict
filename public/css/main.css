@@ -53,10 +53,6 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-body::-webkit-scrollbar {
-  width: 0;
-}
-
 a {
   color: inherit;
 }

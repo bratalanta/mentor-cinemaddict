@@ -1,11 +1,11 @@
-export type TUnadaptedFilm = {
+export interface TUnadaptedFilm {
   id: string;
   film_info: TUnadaptedFilmInfo;
   user_details: TUnadaptedUserDetails;
   comments: string[];
-};
+}
 
-export type TUnadaptedFilmInfo = {
+export interface TUnadaptedFilmInfo {
   title: string;
   alternative_title: string;
   total_rating: number;
@@ -21,11 +21,11 @@ export type TUnadaptedFilmInfo = {
   runtime: number;
   genre: string[];
   description: string;
-};
+}
 
-export type TUnadaptedUserDetails = {
+export interface TUnadaptedUserDetails {
   watchlist: boolean;
   already_watched: boolean;
   watching_date: string;
   favorite: boolean;
-};
+}
